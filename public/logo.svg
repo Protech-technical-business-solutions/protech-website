@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352.85 332.02">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f17330;
+      }
+
+      .cls-2 {
+        fill: #090909;
+      }
+
+      .cls-3 {
+        fill: #f0702f;
+      }
+
+      .cls-4 {
+        fill: #f07230;
+      }
+
+      .cls-4, .cls-5 {
+        font-family: BerlinSansFBDemi-Bold, 'Berlin Sans FB Demi';
+        font-size: 34px;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        fill: #2f2e2d;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-3" d="M0,266.04C56.51,179.06,113.02,92.09,169.53,5.11c21.62,57.87,43.23,115.74,64.85,173.62-23.83-25.02-47.66-50.04-71.49-75.06C108.6,157.79,54.3,211.91,0,266.04Z"/>
+    <path class="cls-1" d="M150.64,140.94c-.94.92-1.89,1.85-2.83,2.77-44.33,43.5-88.67,87-133,130.5,110.64.68,221.28,1.36,331.91,2.04-78.13-16-156.26-32-234.38-48,12.77-29.11,25.53-58.21,38.3-87.32Z"/>
+    <path class="cls-2" d="M184.85,0c56,86.98,112,173.96,168,260.94-66.04-12.09-132.09-24.17-198.13-36.26,34.89-4.94,69.79-9.87,104.68-14.81C234.55,139.91,209.7,69.96,184.85,0Z"/>
+  </g>
+  <text class="cls-4" transform="translate(104.61 325.07)"><tspan x="0" y="0">PRO</tspan></text>
+  <text class="cls-5" transform="translate(176.64 325.07)"><tspan x="0" y="0">TECH</tspan></text>
+</svg>

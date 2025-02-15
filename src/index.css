@@ -1,0 +1,38 @@
+* {
+    font-family: 'Poppins';
+}
+
+.font-Raleway {
+    font-family: 'Raleway' !important;
+}
+
+.company-text {
+    font: normal bold 22px 'Raleway', sans-serif;
+    text-align: left;
+    line-height: 31px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    text-transform: none;
+}
+
+.text-theme {
+    color: #f17430 !important;
+}
+
+.bg-theme {
+    background-color: #f17430 !important;
+}
+
+.border-theme {
+    border-color: #f17430 !important;
+}
+
+.btn-outline-theme {
+    color:#f17430;
+    background-color:white;
+    border-color: #f17430 !important;
+    cursor: pointer;
+} .btn-outline-theme:hover {
+    background-color:#f17430;
+    color:white;
+}

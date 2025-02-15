@@ -1,0 +1,107 @@
+
+.bg-black2grey {
+    background-image:linear-gradient(to right,
+    black,
+    black,
+    black,
+    #0F1010,
+    /* #282828, */
+    #313030,
+    #303030,
+    #313131,
+    #333333,
+    #363535
+    )
+}
+
+  /* Diamond Card */
+  .diamond-card {
+    width: 40px;
+    height: 40px;
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid rgb(189, 184, 184);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: rotate(45deg);
+  }
+  
+  /* Rotate content back */
+  .diamond-card-content {
+    transform: rotate(-45deg);
+    padding: 20px;
+  }
+
+
+.text-gray {
+    color:#494949
+}
+
+.text-navlink {
+    text-transform: uppercase;
+    border: 0px none #000000;
+    padding: 10px 20px 10px 10px;
+    font: normal bold 16px 'Raleway', Arial, sans-serif;
+    text-decoration: none;
+    color: #ffffff;
+    line-height: 17px;
+    background: transparent none no-repeat center top;
+}.text-navlink:hover {
+    color: #f17430 !important;
+}
+
+.btn-getQuote{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    border: 1px none #cccccc;
+    background-color: #f17430;
+    color: #ffffff;
+    font-weight: bold;
+}.btn-getQuote:hover {
+    background-color: black;
+}
+
+.carousel-content {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: white;
+    z-index: 1000;
+}
+
+.aboutUSCarouselBtn {
+    font-weight: bold;
+    color: white;
+    background-color: #f17430;
+    border: 1px solid #f17430;
+    transition: all 0.35s;
+}.aboutUSCarouselBtn:hover {
+    background-color: transparent;
+    color: #f17430;
+}
+
+.servicesCarouselBtn{
+    font-weight: bold;
+    background-color: white;
+    color: #f17430;
+    border: 1px solid white;
+    transition: all 0.35s;
+}.servicesCarouselBtn:hover {
+    background-color: transparent;
+    color: white;
+}
+
+
+.btn-footer-quote {
+    color: white;
+    background-color:black;
+    transition: all 0.3s;
+}
+.btn-footer-quote:hover {
+    background-color: white;
+    color:black;
+}
