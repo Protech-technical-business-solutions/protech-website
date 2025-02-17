@@ -50,7 +50,7 @@ const protechRouter = createHashRouter(
 const MyApp = props => {
 
     // we'll use window.matchMedia method to check if the website is opened in mobile
-    const [isMobile,setIsMobile] = useState( window.innerWidth<=750 )
+    const [isMobile,setIsMobile] = useState( window.innerWidth==500 )
 
     // useEffect(() => {
     //   window.get("(max-width: 750px)")

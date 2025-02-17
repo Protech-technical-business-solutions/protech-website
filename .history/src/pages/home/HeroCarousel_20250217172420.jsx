@@ -24,14 +24,14 @@ className="carousel slide carousel-fade" data-bs-ride="carousel">
           PRO<span className="text-theme">TECH</span>
         </p>
         <p style={{fontSize:isMobile?15:30}}>Design, Build, Install & Maintain</p>
-        {!isMobile&&<br />}
+        <br />
         <div className="d-flex gap-4">
           <Link to="/about-us" 
-          className={`aboutUSCarouselBtn text-decoration-none cursor-pointer ${isMobile?"p-1":"py-3 px-5"}`}>
+          className={`aboutUSCarouselBtn text-decoration-none cursor-pointer ${isMobile?"p-2 fs-6":"py-3 px-5"}`}>
             ABOUT US
           </Link>
           <Link to="services" 
-          className={`servicesCarouselBtn text-decoration-none cursor-pointer ${isMobile?"p-1":"py-3 px-5"}`}>
+          className={`servicesCarouselBtn text-decoration-none cursor-pointer ${isMobile?"p-2 fs-6":"py-3 px-5"}`}>
             SERVICES
           </Link>
         </div>

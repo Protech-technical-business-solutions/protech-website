@@ -33,7 +33,7 @@ const Header = () => {
       </div>
 
       <nav className="bg-black2grey">
-        <div className={`container d-flex justify-content-${isMobile?"around":"between"}`}>
+        <div className="container d-flex justify-content-between">
           {isMobile ?
             <>
               <p style={{fontSize:20}} className="fw-bold mb-0 p-3 text-light">

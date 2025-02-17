@@ -44,7 +44,7 @@ function ContactUs(props){
         <div>
             <PageBanner bannerTitle="Contact Us" 
             bannerImageURL="/banners/contactPageBanner.jpg" />
-            {isMobile ? <><br /><br /></> :<><br /><br /><br /><br /><br /><br /></>}
+            {isMobile ? <br /> :<><br /><br /><br /><br /><br /><br /></>}
             <div className="container">
                 <h5 style={{
                     fontSize:37
