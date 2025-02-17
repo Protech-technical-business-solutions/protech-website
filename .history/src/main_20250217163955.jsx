@@ -50,12 +50,12 @@ const protechRouter = createBrowserRouter(
 const MyApp = props => {
 
     // we'll use window.matchMedia method to check if the website is opened in mobile
-    const [isMobile,setIsMobile] = useState( window.innerWidth==500 )
+    const [isMobile,setIsMobile] = useState( window.matchMedia("(max-width: 500px)").matches )
 
-    // useEffect(() => {
-    //   window.get("(max-width: 750px)")
-    //   .addEventListener("change", e=>setIsMobile(e.matches)) // we also add eventlisteners incase the window is resized 
-    // }, [])
+    useEffect(() => {
+      window.matchMedia("(max-width: 750px)")
+      .addEventListener("change", e=>setIsMobile(e.matches)) // we also add eventlisteners incase the window is resized 
+    }, [])
 
   return (
     <MyContext.Provider value={ {isMobile:isMobile} }> {/* wrapping everything under our context */}

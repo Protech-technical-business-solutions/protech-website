@@ -1,0 +1,7 @@
+
+
+do:
+git add .
+git commit -m "message"
+git push
+npm run deploy
