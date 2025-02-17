@@ -17,7 +17,6 @@ import SiteWorksPage from './pages/siteWorks/index.jsx';
 
 // other stuff
 import MyContext from "./config/contextFile.jsx"
-import { useMediaQuery } from 'react-responsive'
 
 
 // as we require Header and Footer in every page and we dont wish to recreate them,
@@ -51,12 +50,12 @@ const protechRouter = createHashRouter(
 const MyApp = props => {
 
     // we'll use window.matchMedia method to check if the website is opened in mobile
-    // const [isMobile,setIsMobile] = useState( window.innerWidth<=750 );
-    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-    // useEffect(() => {
-    //   window.matchMedia("(max-width: 750px)")
-    //   .addEventListener("change", e=>setIsMobile(e.matches)) // we also add eventlisteners incase the window is resized 
-    // }, [])
+    const [isMobile,setIsMobile] = useState( window.innerWidth<=750 )
+
+    useEffect(() => {
+      window.matchMedia("(max-width: 750px)")
+      .addEventListener("change", e=>setIsMobile(e.matches)) // we also add eventlisteners incase the window is resized 
+    }, [])
 
   return (
     <MyContext.Provider value={ {isMobile:isMobile} }> {/* wrapping everything under our context */}
