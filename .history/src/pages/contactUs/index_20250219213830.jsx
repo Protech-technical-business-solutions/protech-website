@@ -44,8 +44,9 @@ function ContactUs(props){
         e.preventDefault();
         const subject = document.getElementById("SubjectInputContact").value;
         const name = document.getElementById("nameInputContact").value;
-        const message = document.getElementById("messageInputContact").value.replace("\n","%0A%0A");
-        window.open("mailto:ayyubsayeed@protech-saudi.com?subject="+subject+"&body=From "+name+"%0A%0A"+message)
+        const message = document.getElementById("messageInputContact").value;
+        alert(message)
+        // window.open("mailto:ayyubsayeed@protech-saudi.com?subject="+subject+"&body=From "+name+"%0A%0A"+message)
     }
 
     return(

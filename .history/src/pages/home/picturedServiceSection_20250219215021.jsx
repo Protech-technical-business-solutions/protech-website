@@ -83,18 +83,16 @@ const Services = () => {
             className="company-text text-white position-absolute">
                 Fire Fighting
             </p>
-            <HashLink to="/services#Fire fighting & Fire suppression">
-                <button style={{
-                    height:isMobile?70:40,
-                    left:"30%",
-                    top:"75%",
-                    fontSize:isMobile?25:""
-                }}
-                className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    Read more &nbsp;
-                    <FaAnglesRight />
-                </button>
-            </HashLink>
+            <button style={{
+                height:isMobile?70:40,
+                left:"30%",
+                top:"75%",
+                fontSize:isMobile?25:""
+            }} 
+            className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
+                Read more &nbsp;
+                <FaAnglesRight />
+            </button>
         </div>
     </div>
   );

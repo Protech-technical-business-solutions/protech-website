@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react';
 import MyContext from '../../config/contextFile';
 
-import { Link } from 'react-router-dom';
-
 import { FaAnglesRight } from "react-icons/fa6";
 
 const Features = () => {
@@ -39,13 +37,13 @@ function FeatureCard(props){
         {props.content}
       </p>
       <div>
-        <Link to="/about-us" style={{fontSize:isMobile?20:15}}
+        <a href="/about-us" style={{fontSize:isMobile?20:15}}
         onMouseEnter={()=>setReadButtonHovered(true)}
         onMouseLeave={()=>setReadButtonHovered(false)}
         className={`mt-1 fw-bold text-decoration-none ${readButtonHovered ? props.BGcolorClass=="bg-dark" ? "text-white" : "text-dark" : props.BGcolorClass=="bg-theme" ? "text-white" : "text-theme"}`}>
           Read more &nbsp;
           <FaAnglesRight />
-        </Link>
+        </a>
       </div>
     </div>
   );

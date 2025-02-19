@@ -31,8 +31,7 @@ export default function ServicesPage(){
                     style={{
                         backgroundColor: idx%2==0? "white" : "#f1f1f1"
                     }}>
-                        <div key={idx} id={service.title} 
-                        className={isMobile?"":"container"}>
+                        <div className={isMobile?"":"container"}>
                             <br />
                             <h1 style={{
                                 fontSize:isMobile?40:31, fontWeight:"bold"
@@ -58,9 +57,7 @@ export default function ServicesPage(){
                                     minHeight:234,
                                 }}
                                 className="flex-grow-1 d-flex justify-content-center">
-                                    <ul style={{
-                                        maxWidth:500
-                                    }}>
+                                    <ul>
                                         {service.services.map(servicee=>
                                             <li style={{fontSize:isMobile?25:15, lineHeight:"33px", color:"#666666"}}
                                             className="mt-4">{servicee}</li>
@@ -71,8 +68,7 @@ export default function ServicesPage(){
                         </div>
                     </div>
                 )}
-                <div id="Electrical Services" 
-                className="py-5"
+                <div className="py-5"
                 style={{
                     backgroundColor:"#f1f1f1"
                 }}>
@@ -102,7 +98,7 @@ export default function ServicesPage(){
                                 minHeight:234,
                             }}
                             className="flex-grow-1 d-flex justify-content-center">
-                                <p style={{fontSize:isMobile?25:15, lineHeight:"33px", color:"#666666", maxWidth:500}}
+                                <p style={{fontSize:isMobile?25:15, lineHeight:"33px", color:"#666666"}}
                                 className="mt-4 mx-">
                                     We are a friendly team of electricians who understand that you want a reliable and cost efficient solution. With years of experience in this domain, we are providing our clients with superior grade Electrical Services. We offer an exclusive range of this Electrical Maintenance services to our customers.
                                 </p>

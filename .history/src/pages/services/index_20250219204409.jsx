@@ -31,8 +31,7 @@ export default function ServicesPage(){
                     style={{
                         backgroundColor: idx%2==0? "white" : "#f1f1f1"
                     }}>
-                        <div key={idx} id={service.title} 
-                        className={isMobile?"":"container"}>
+                        <div className={isMobile?"":"container"}>
                             <br />
                             <h1 style={{
                                 fontSize:isMobile?40:31, fontWeight:"bold"
@@ -71,8 +70,7 @@ export default function ServicesPage(){
                         </div>
                     </div>
                 )}
-                <div id="Electrical Services" 
-                className="py-5"
+                <div className="py-5"
                 style={{
                     backgroundColor:"#f1f1f1"
                 }}>

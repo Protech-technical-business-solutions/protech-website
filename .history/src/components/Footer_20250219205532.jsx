@@ -47,24 +47,20 @@ const Footer = () => {
           <span>Connect with us on social networks:</span>
         </div>
         <div>
-          <a target='_blank' 
-          href="https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/" className="me-4 text-reset">
+          <a href="#" className="me-4 text-reset">
             <FaLinkedin size={isMobile?40:""} 
             className='text-light text-hover-theme' />
           </a>
-          <a target='_blank' 
-          href="https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/" className="me-4 text-reset">
+          <a href="#" className="me-4 text-reset">
             <FaGoogle size={isMobile?40:""} 
             className='text-light text-hover-theme' />
           </a>
-          <a target='_blank' 
-          href="https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/" className="me-4 text-reset">
+          <a href="#" className="me-4 text-reset">
             <FaInstagram size={isMobile?40:""} 
             className='text-light text-hover-theme' />
           </a>
-          <a target='_blank' 
-          href="https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/" className="me-4 text-reset">
-            <TiSocialFacebook size={isMobile?50:22} 
+          <a href="#" className="me-4 text-reset">
+            <TiSocialFacebook size={isMobile?50:""} 
             className='text-light text-hover-theme' />
           </a>
         </div>

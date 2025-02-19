@@ -27,7 +27,7 @@ const Services = () => {
             className="company-text text-white position-absolute">
                 Interior Designing
             </p>
-            <HashLink to="/services#Interior Design"> {/* needed to get into that specific div with the ID "Interior Design"!! */}
+            <HashLink to="/services#Interior Design">
                 <button style={{
                     height:isMobile?70:40,
                     left:"30%",
@@ -55,18 +55,16 @@ const Services = () => {
             className="company-text text-white position-absolute">
                 HVAC Works
             </p>
-            <HashLink to="/services#HVAC Works">
-                <button style={{
-                    height:isMobile?70:40,
-                    left:"30%",
-                    top:"75%",
-                    fontSize:isMobile?25:""
-                }}
-                className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    Read more &nbsp;
-                    <FaAnglesRight />
-                </button>
-            </HashLink>
+            <button style={{
+                height:isMobile?70:40,
+                left:"30%",
+                top:"75%",
+                fontSize:isMobile?25:""
+            }} 
+            className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
+                Read more &nbsp;
+                <FaAnglesRight />
+            </button>
         </div>
         <div style={{
         height:isMobile?600:420,
@@ -83,18 +81,16 @@ const Services = () => {
             className="company-text text-white position-absolute">
                 Fire Fighting
             </p>
-            <HashLink to="/services#Fire fighting & Fire suppression">
-                <button style={{
-                    height:isMobile?70:40,
-                    left:"30%",
-                    top:"75%",
-                    fontSize:isMobile?25:""
-                }}
-                className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    Read more &nbsp;
-                    <FaAnglesRight />
-                </button>
-            </HashLink>
+            <button style={{
+                height:isMobile?70:40,
+                left:"30%",
+                top:"75%",
+                fontSize:isMobile?25:""
+            }} 
+            className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
+                Read more &nbsp;
+                <FaAnglesRight />
+            </button>
         </div>
     </div>
   );

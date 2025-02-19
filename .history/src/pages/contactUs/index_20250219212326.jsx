@@ -40,14 +40,6 @@ function ContactUs(props){
         {title:"E-Mail", Content: ()=><EmailCardContent />, cardImage:"/contactPage/email card.png"},
     ]
 
-    const sendMail = e => {
-        e.preventDefault();
-        const subject = document.getElementById("SubjectInputContact").value;
-        const name = document.getElementById("nameInputContact").value;
-        const message = document.getElementById("messageInputContact").value.replace("\n","%0A%0A");
-        window.open("mailto:ayyubsayeed@protech-saudi.com?subject="+subject+"&body=From "+name+"%0A%0A"+message)
-    }
-
     return(
         <div>
             <PageBanner bannerTitle="Contact Us" 
@@ -91,8 +83,7 @@ function ContactUs(props){
                     </div>)}
                 </div>
                 <br /><br /><br /><br />
-                <form onSubmit={sendMail} 
-                className={isMobile?"mx-5":""}>
+                <form className={isMobile?"mx-5":""}>
                     <div className="mb-3">
                         <label style={{
                             fontSize:isMobile?27:""
@@ -119,8 +110,7 @@ function ContactUs(props){
                             fontSize:isMobile?27:""
                         }} 
                         for="messageInputContact" className="form-label">Message</label>
-                        <textarea style={{whiteSpace:"pre-wrap"}} 
-                        className="form-control form-control-lg border-3" id="messageInputContact"/>
+                        <textarea className="form-control form-control-lg border-3" id="messageInputContact"/>
                         <div className="form-text">We respond within 2 days.</div>
                     </div>
                     <div className="d-flex justify-content-end">

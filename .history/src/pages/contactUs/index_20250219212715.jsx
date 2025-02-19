@@ -42,10 +42,10 @@ function ContactUs(props){
 
     const sendMail = e => {
         e.preventDefault();
-        const subject = document.getElementById("SubjectInputContact").value;
-        const name = document.getElementById("nameInputContact").value;
-        const message = document.getElementById("messageInputContact").value.replace("\n","%0A%0A");
-        window.open("mailto:ayyubsayeed@protech-saudi.com?subject="+subject+"&body=From "+name+"%0A%0A"+message)
+        const subject = document.getElementById("nameInputContact").ariaValueMax;
+        const name = document.getElementById("nameInputContact").ariaValueMax;
+        const message = document.getElementById("messageInputContact").ariaValueMax;
+        window.open("mailto:ayyubsayeed@protech-saudi.com?subject="+subject+"?body=From "+name+"\n"+message)
     }
 
     return(
@@ -119,8 +119,7 @@ function ContactUs(props){
                             fontSize:isMobile?27:""
                         }} 
                         for="messageInputContact" className="form-label">Message</label>
-                        <textarea style={{whiteSpace:"pre-wrap"}} 
-                        className="form-control form-control-lg border-3" id="messageInputContact"/>
+                        <textarea className="form-control form-control-lg border-3" id="messageInputContact"/>
                         <div className="form-text">We respond within 2 days.</div>
                     </div>
                     <div className="d-flex justify-content-end">
