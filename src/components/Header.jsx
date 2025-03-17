@@ -23,6 +23,15 @@ const Header = () => {
       </div>
 
       <div className='bg-white'>
+        <div className="d-flex justify-content-end">
+          <div class="switch">
+            <label class="switch__wrapper">
+              <input type="checkbox" />
+              <span class="switch__slider"></span>
+              <div></div>
+            </label>
+          </div>
+        </div>
         <div className={`container d-flex align-items-center flex-wrap ${isMobile?"justify-content-center":""}`}>
           <div className={`${isMobile?"d-none":"flex-grow-1"} mb-1`}><img src="/logo2.svg" alt="Logo" height={150} /></div>
           <div className={`d-flex justify-content-between ${isMobile?"gap-5 mt-4":"gap-5"}`}>
