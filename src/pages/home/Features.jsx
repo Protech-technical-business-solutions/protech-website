@@ -30,7 +30,7 @@ function FeatureCard(props){
   const {isMobile} = useContext(MyContext)
   return (
     <div style={{width:isMobile?"70%":320,height:isMobile?450:350}} 
-    className={`card ${props.BGcolorClass=="bg-white" ? "text-dark" : "text-white"} border-0 shadow-md pt-5 pb-3 px-3 ${props.BGcolorClass} ${isMobile&&"px-5"}`}>
+    className={`card ${props.BGcolorClass=="bg-white" ? "text-dark" : "text-white"} border-0 shadow-lg pt-5 pb-3 px-3 ${props.BGcolorClass} ${isMobile&&"px-5"}`}>
       <img height={isMobile?100:40} width={isMobile?100:40} 
       src={`/featureCard/${props.iconImage}`} alt={`${props.iconImage}`} />
       <h5 className='fw-bold mt-3 company-text' style={{fontSize:isMobile?37:22}}>{props.title}</h5>
@@ -39,7 +39,7 @@ function FeatureCard(props){
         {props.content}
       </p>
       <div>
-        <Link to="/about-us" style={{fontSize:isMobile?20:15}}
+        <Link to="/about-us" onClick={()=>window.scrollTo(0,0)} style={{fontSize:isMobile?20:15}}
         onMouseEnter={()=>setReadButtonHovered(true)}
         onMouseLeave={()=>setReadButtonHovered(false)}
         className={`mt-1 fw-bold text-decoration-none ${readButtonHovered ? props.BGcolorClass=="bg-dark" ? "text-white" : "text-dark" : props.BGcolorClass=="bg-theme" ? "text-white" : "text-theme"}`}>

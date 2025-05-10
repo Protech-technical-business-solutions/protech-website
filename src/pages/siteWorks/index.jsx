@@ -23,7 +23,7 @@ export default function SiteWorksPage(props){
     return (
         <div>
             <PageBanner bannerTitle="Site Works"
-             bannerImageURL="/banners/siteWorksPageBanner.webp" />
+             bannerImageURL="/banners/siteWorksPageBanner2.webp" />
             <br /><br /><br /><br />
             <h5 style={{
                 fontSize:37

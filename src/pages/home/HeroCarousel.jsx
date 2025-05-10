@@ -6,16 +6,15 @@ const Carousel = () => {
   const { isMobile } = useContext(MyContext)
   return (
 <div id="protechCarouselAutoPlay" style={{marginBottom:isMobile?"":"120px"}}
-className="carousel slide carousel-fade" data-bs-ride="carousel">
+className="carousel slide" data-bs-ride="carousel">
   <div className={isMobile?"d-none":"carousel-indicators"}>
-    <button type="button" data-bs-target="#protechCarouselAutoPlay" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#protechCarouselAutoPlay" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#protechCarouselAutoPlay" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#protechCarouselAutoPlay" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    <button type="button" data-bs-target="#protechCarouselAutoPlay" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    {[1,2,3,4,5,6].map(i =>
+    <button type="button" className={i==1?"active":""} key={i} 
+    data-bs-target="#protechCarouselAutoPlay" data-bs-slide-to={i-1} aria-label={`Slide ${i+1}`}></button>
+    )}
   </div>
   <div className="carousel-inner">
-    {[1,2,3,4,5].map(i => 
+    {[1,2,3,4,5,6].map(i => 
     <div className={`carousel-item ${i==1?"active":""}`}>
       <img src={`/carousel/${i}.jpg`} className="d-block w-100" style={{maxHeight:isMobile?450:855}} alt="..."/>
       <div className="carousel-content">
