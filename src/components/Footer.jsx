@@ -14,7 +14,7 @@ const Footer = () => {
   const {isMobile} = useContext(MyContext)
   return (
     <section style={{width:"100%"}}>
-      <div className="px-4 py-4 d-flex flex-wrap justify-content-around bg-theme text-white fw-bold">
+      <div className={`px-4 ${isMobile ? "pt-5" :"py-4"} d-flex flex-wrap justify-content-around bg-theme text-white fw-bold`}>
         <div className={`${isMobile ? "text-center" : ""}`}>
           <h4 style={{
             fontSize:isMobile?28:""
@@ -34,7 +34,7 @@ const Footer = () => {
           <button style={{
             fontSize:isMobile?30:""
           }} onClick={() => {window.scrollTo(0,0);navigate("/contact-us")}}
-          className={`btn-footer-quote px-5 py-4 rounded-2 border-0 text-center fw-bold font-Raleway`}>
+          className={`btn-footer-quote px-5 py-4 ${isMobile && "mb-5"} rounded-2 border-0 text-center fw-bold font-Raleway`}>
             GET A QUOTE
           </button>
         </div>
@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
       </section>
 
-      <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
+      <div className="text-center p-5" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)", fontSize: isMobile ? 25 : ""}}>
         © {new Date().getFullYear()} Copyright: <a className="text-reset fw-bold" href="https://www.protech-saudi.com/">protech-saudi</a>
       </div>
     </footer>

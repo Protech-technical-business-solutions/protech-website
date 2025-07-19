@@ -49,13 +49,14 @@ const protechRouter = createHashRouter(
 )
 
 const MyApp = props => {
-    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+    // More comprehensive mobile detection that covers all phone sizes including large phones like iPhone 16 Pro Max
+    const isMobile = useMediaQuery({ 
+      query: '(max-width: 768px), (max-width: 1024px) and (orientation: portrait)' 
+    });
 
   return (
     <MyContext.Provider value={ {isMobile:isMobile} }> {/* wrapping everything under our context */}
       
-      {/* <Header /> */} {/* We cannot simply use this here as it would not have access to the router functions like Link,etc... */}
-      {/* Using our router: */}
       <RouterProvider router={protechRouter} />
     
     </MyContext.Provider>
