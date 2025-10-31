@@ -107,9 +107,9 @@ const Footer = () => {
                 fontSize:isMobile?34:""
               }}
               className="text-uppercase fw-bold mb-4 mt-5">Contact</h6>
-              <p style={{fontSize:isMobile?25:""}}><IoLocationSharp className='me-3 text-theme' /> Riyadh, Saudi Arabia</p>
+              <p style={{fontSize:isMobile?25:""}}><IoLocationSharp className='me-3 text-theme' /> Office No. 08, Floor No. 01, Building 7021, Abdullah Al-Hamadhani St, Al Malaz District, Riyadh 12836, Saudi Arabia</p>
               <p style={{fontSize:isMobile?25:""}}><MdEmail className='me-3 text-theme'/>ayyubsayeed@protech-saudi.com</p>
-              <p style={{fontSize:isMobile?25:""}}><MdEmail className='me-3 text-theme'/>imran@protech-saudi.com</p>
+              <p style={{fontSize:isMobile?25:""}}><MdEmail className='me-3 text-theme'/>info@protech-saudi.com</p>
               <p style={{fontSize:isMobile?25:""}}><FaPhone className='me-3 text-theme'/> + 966 572744600</p>
               <p style={{fontSize:isMobile?25:""}}><FaPhone className='me-3 text-theme'/> + 966 580681213</p>
             </div>

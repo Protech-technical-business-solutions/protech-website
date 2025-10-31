@@ -30,7 +30,7 @@ const Services = () => {
             <HashLink to="/services#Interior Design"> {/* needed to get into that specific div with the ID "Interior Design"!! */}
                 <button style={{
                     height:isMobile?70:40,
-                    left:"30%",
+                    left:"20%",
                     top:"75%",
                     fontSize:isMobile?25:""
                 }}
@@ -53,12 +53,12 @@ const Services = () => {
                 fontSize:isMobile?50:""
             }} 
             className="company-text text-white position-absolute">
-                HVAC Works
+                MEP Works
             </p>
-            <HashLink to="/services#HVAC Works">
+            <HashLink to="/services#MEP Works">
                 <button style={{
                     height:isMobile?70:40,
-                    left:"30%",
+                    left:"25%",
                     top:"75%",
                     fontSize:isMobile?25:""
                 }}
@@ -74,19 +74,19 @@ const Services = () => {
         backgroundSize:"cover",
         position:"relative",
         backgroundRepeat:"no-repeat",
-        backgroundImage:"url('/picturedServiceSection/fire fighting.png')"}}>
+        backgroundImage:"url('/picturedServiceSection/construction.png')"}}>
             <p style={{
-                left:"32%",
+                left:"22%",
                 top:"60%",
                 fontSize:isMobile?50:""
             }} 
             className="company-text text-white position-absolute">
-                Fire Fighting
+                Construction Works
             </p>
-            <HashLink to="/services#Fire fighting & Fire suppression">
+            <HashLink to="/services#Construction Services">
                 <button style={{
                     height:isMobile?70:40,
-                    left:"30%",
+                    left:"25%",
                     top:"75%",
                     fontSize:isMobile?25:""
                 }}

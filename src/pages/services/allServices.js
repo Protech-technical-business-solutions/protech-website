@@ -3,21 +3,20 @@
 const allServices = [
     {
         title: "Construction Services",
-        image:"/carousel/3.jpg",
+        image:"/servicesPage/construction.jpeg",
         services: [
-            "General Contracting",
-            "Structural Engineering & Design",
-            "Masonry & Concrete Works",
-            "Steel Structure Fabrication & Installation",
-            "MEP (Mechanical, Electrical, Plumbing) Services",
-            "Waterproofing & Insulation",
-            "Roofing Solutions",
-            "Landscaping & Hardscaping",
+            "Site Clearing & Preparation",
             "Excavation & Earthworks",
-            "Road & Infrastructure Development",
-            "Foundation & Piling Works",
-            "Painting & Finishing Works",
-            "Demolition & Renovation"
+            "PCC/RCC Foundations",
+            "RCC/Steel Structural Works",
+            "Masonry & Plastering",
+            "Flooring & Finishes",
+            "Waterproofing & Damp Proofing",
+            "Drainage & Sewage Works",
+            "Roads & Pavements",
+            "Boundary Walls & Landscaping",
+            "Ancillary Structures",
+            "Site Cleaning & Handover"
         ]
     },
     {
@@ -40,7 +39,7 @@ const allServices = [
         ]
     },
     {
-        title:"HVAC Works",
+        title:"MEP Works",
         image:"/servicesPage/hvac.jpg",
         services: [
             "Chilled Water Systems, FCU, AHU",
@@ -55,12 +54,6 @@ const allServices = [
             "Maintenance & Service Contracts",
             "Duct & Piping Insulation",
             "Inspection, Surveys & Reports of Existing HVAC Installations",
-        ]
-    },
-    {
-        title:"Fire fighting & Fire suppression",
-        image:"/servicesPage/fireFighting.jpg",
-        services: [
             "Dry & Wet riser Installation",
             "Fire Hydrant / Breeching Inlet",
             "Fire Hose Reel with Cabinet",
@@ -73,8 +66,25 @@ const allServices = [
             "Kitchen Hood Fire Suppression System",
             "Emergency Generators and Systems",
             "Passive Fire Protection",
-            "Fire Pumps",
-            
+            "Fire Pumps"
+        ]
+    },
+    {
+        title:"telecommunication towers and network infrastructure",
+        image:"/servicesPage/networks.jpeg",
+        services: [
+            "Site Survey & Preparation",
+            "Foundation Construction",
+            "Equipment Shelter Works",
+            "Boundary Wall & Fencing",
+            "Access Roads & Drainage",
+            "Tower Fabrication & Erection",
+            "Antenna & RF Installation",
+            "Electrical & Power Systems",
+            "Network Equipment Integration",
+            "Testing & Commissioning",
+            "Site Restoration & Handover",
+            "Solar & RMS Systems"
         ]
     },
     {

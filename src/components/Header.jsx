@@ -37,8 +37,8 @@ const Header = () => {
             <img src="/logo2.svg" alt="Logo" height={isMobile ? 140 : 150} />
           </div>
           <div className={`d-flex ${isMobile ? "flex-column gap-5 mt-5 w-100" : "justify-content-between gap-5"}`}>
-            <InfoSection Icon={IoIosCall} title="Call us:" content="(+966) 572744600" iconSize={isMobile ? 30 : 20} />
-            <InfoSection Icon={FaLocationDot} title="Find us:" content="Riyadh, PO.BOX: 1234 , Saudi Arabia" iconSize={isMobile ? 30 : 15} />
+            <InfoSection Icon={IoIosCall} title="Call us:" content="(+966) 572744600" linkToOpen="tel:+966572744600" iconSize={isMobile ? 30 : 20} />
+            <InfoSection Icon={FaLocationDot} title="Find us:" content="Office 08, 1st Floor, Bldg 7021, Abdullah Al-Hamadhani St, Al Malaz, Riyadh 12836" linkToOpen="https://maps.app.goo.gl/Ngp9yrfrA1Yjmaxw7" iconSize={isMobile ? 30 : 15} />
           </div>
         </div>
       </div>
@@ -206,7 +206,8 @@ const Header = () => {
 function InfoSection(props){
   const { isMobile } = useContext(MyContext);
   return(
-    <div className="d-flex position-relative gap-4">
+    <div onClick={()=>window.location.href=props.linkToOpen} 
+    className="d-flex position-relative gap-4" style={{width:isMobile?"":300}}>
       <div className="diamond-card" >
         <div className="diamond-card-content">
           <props.Icon className='text-theme mb-1' size={props.iconSize || (isMobile ? 25 : 20)} />

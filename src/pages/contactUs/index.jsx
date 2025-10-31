@@ -13,7 +13,7 @@ function ContactUs(props){
                     <p><b>ayyubsayeed@protech-saudi.com</b></p>
                 </div>
                 <div className="d-flex justify-content-around">
-                    <p><b>imran@protech-saudi.com</b></p>
+                    <p><b>info@protech-saudi.com</b></p>
                 </div>
             </>
         );
@@ -32,7 +32,16 @@ function ContactUs(props){
             </>
         );
     }
-    const AddressCardContent = (props) => <p><b>Protech Technical Solutions & Business Services <br /> Riyadh, PO.Box : 1234 <br /> Saudi Arabia</b></p>
+    const AddressCardContent = (props) => 
+    <p>
+    <b>
+        Protech Technical Solutions & Business Services <br />
+        Office No. 08, Floor No. 01, Building 7021 <br />
+        Abdullah Al-Hamadhani St, Al Malaz District <br />
+        Riyadh 12836, Saudi Arabia
+    </b>
+    </p>
+
 
     const contactCards = [
         {title:"Address", Content: ()=><AddressCardContent />, cardImage:"/contactPage/address card.png"},
@@ -70,7 +79,7 @@ function ContactUs(props){
                     {contactCards.map(contactCard=>
                     <div style={{
                         width:isMobile?"70%":320,
-                        height: isMobile?480:342,
+                        height: isMobile?530:450,
                         backgroundSize:"cover",
                         backgroundImage:`url('${contactCard.cardImage}'`
                     }}>
@@ -132,7 +141,10 @@ function ContactUs(props){
                 </form>
                 <br /><br /><br /><br />
             </div>
-            <div style={{width: "100%"}}><iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=Riyadh+(Protech%20Saudi)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps handsets</a></iframe></div>
+            <div style={{width: "100%"}}>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14502.62049535058!2d46.7127112!3d24.6699966!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f041591e9809b%3A0xa6d9f789de27dba3!2sJuice%20Shop!5e0!3m2!1sen!2sqa!4v1761925054529!5m2!1sen!2sqa" width="100%" height="350" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
         </div>
     );
 }
