@@ -87,11 +87,11 @@ const Footer = () => {
                 fontSize:isMobile?34:""
               }}
               className="text-uppercase fw-bold mb-4 mt-5">Quick Links</h6>
-              <p style={{fontSize:isMobile?25:""}}><a href="#" className="text-light text-hover-theme text-decoration-none">Home</a></p>
-              <p style={{fontSize:isMobile?25:""}}><a href="#" className="text-light text-hover-theme text-decoration-none">About us</a></p>
-              <p style={{fontSize:isMobile?25:""}}><a href="#" className="text-light text-hover-theme text-decoration-none">Services</a></p>
-              <p style={{fontSize:isMobile?25:""}}><a href="#" className="text-light text-hover-theme text-decoration-none">Site Works</a></p>
-              <p style={{fontSize:isMobile?25:""}}><a href="#" className="text-light text-hover-theme text-decoration-none">Contact us</a></p>
+              <p style={{fontSize:isMobile?25:""}}><a href="#/" className="text-light text-hover-theme text-decoration-none">Home</a></p>
+              <p style={{fontSize:isMobile?25:""}}><a href="#/about-us" className="text-light text-hover-theme text-decoration-none">About us</a></p>
+              <p style={{fontSize:isMobile?25:""}}><a href="#/services" className="text-light text-hover-theme text-decoration-none">Services</a></p>
+              <p style={{fontSize:isMobile?25:""}}><a href="#/site-works" className="text-light text-hover-theme text-decoration-none">Site Works</a></p>
+              <p style={{fontSize:isMobile?25:""}}><a href="#/contact-us" className="text-light text-hover-theme text-decoration-none">Contact us</a></p>
             </div>
             <div className="col-md-8 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 style={{
@@ -99,7 +99,7 @@ const Footer = () => {
               }}
               className="text-uppercase fw-bold mb-4 mt-5">Services</h6>
               {allServices.map(service=>
-                <p style={{fontSize:isMobile?25:""}}><a href="/services/#" className="text-light text-hover-theme text-decoration-none">{service.title}</a></p>
+                <p style={{fontSize:isMobile?25:""}}><a href="#/services/#" className="text-light text-hover-theme text-decoration-none">{service.title}</a></p>
               )}
             </div>
             <div className="col-md-8 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
