@@ -17,7 +17,7 @@ const Services = () => {
     },
     {
       title:"Construction",
-      content: "We also Provide Interior Architecture Services to our valuable clients across Saudi Arabia",
+      content: "We also offer turnkey solutions for all types of building construction projects.",
       iconImage: "/mainServiceSection/construction.png"
     }
   ];

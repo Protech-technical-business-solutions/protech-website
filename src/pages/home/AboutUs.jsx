@@ -9,7 +9,7 @@ const AboutUs = () => {
           <div className="col-md-6">
             <h2>About Us</h2>
             <p className="lead">
-              Capital Dynamics Qatar is a leading financial services provider 
+              Protech Saudi is a leading financial services provider 
               offering innovative solutions in wealth management, investment 
               banking, and corporate finance.
             </p>
