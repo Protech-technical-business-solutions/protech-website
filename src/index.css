@@ -141,7 +141,8 @@ body[dir='rtl'] .header-locale-switch {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18), transparent 35%);
+  /* remove the bright circular highlight while keeping overall track shading */
+  background: none;
   pointer-events: none;
 }
 
@@ -178,14 +179,14 @@ body[dir='rtl'] .header-locale-switch {
   transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.25s ease, filter 0.25s ease;
 }
 
-.switch__thumb::after {
+/* .switch__thumb::after {
   content: "";
   position: absolute;
   inset: 10px 24px 10px 24px;
   border-radius: 999px;
   background: rgba(255,255,255,0.22);
   filter: blur(1px);
-}
+} */
 
 .switch input:checked + .switch__track .switch__thumb {
   transform: translateX(72px);
