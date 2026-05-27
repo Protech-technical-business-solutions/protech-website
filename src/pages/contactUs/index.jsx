@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import PageBanner from "../../components/PageBanner"
 import MyContext from "../../config/contextFile";
+import { localizeDigits } from '../../config/localization';
 
 function ContactUs(props){
 
-    const {isMobile} = useContext(MyContext)
+    const {isMobile, t, locale} = useContext(MyContext)
+    const primaryPhone = localizeDigits('(+966) 572744600', locale)
+    const secondaryPhone = localizeDigits('(+966) 580681213', locale)
 
     const EmailCardContent = (props) => {
         return (
@@ -22,12 +25,12 @@ function ContactUs(props){
         return (
             <>
                 <div className="d-flex justify-content-around">
-                    <p className="fw-bold">Phone:</p>
-                    <p><b>(+966) 572744600</b></p>
+                    <p className="fw-bold">{t('pages.shared.phoneLabel')}</p>
+                    <p><b>{primaryPhone}</b></p>
                 </div>
                 <div className="d-flex justify-content-around">
-                    <p className="fw-bold">Mobile:</p>
-                    <p><b>(+966) 580681213</b></p>
+                    <p className="fw-bold">{t('pages.shared.mobileLabel')}</p>
+                    <p><b>{secondaryPhone}</b></p>
                 </div>
             </>
         );
@@ -35,18 +38,16 @@ function ContactUs(props){
     const AddressCardContent = (props) => 
     <p>
     <b>
-        Protech Technical Solutions & Business Services <br />
-        Office No. 08, Floor No. 01, Building 7021 <br />
-        Abdullah Al-Hamadhani St, Al Malaz District <br />
-        Riyadh 12836, Saudi Arabia
+        {t('pages.shared.companyName')} <br />
+        {t('pages.shared.officeAddressLines').map((line, index) => <span key={index}>{line}<br /></span>)}
     </b>
     </p>
 
 
     const contactCards = [
-        {title:"Address", Content: ()=><AddressCardContent />, cardImage:"/contactPage/address card.png"},
-        {title:"Contact Numbers", Content:()=><ContactNumberCardContent />, cardImage:"/contactPage/contact card.png"},
-        {title:"E-Mail", Content: ()=><EmailCardContent />, cardImage:"/contactPage/email card.png"},
+        {title:t('pages.contact.address'), Content: ()=><AddressCardContent />, cardImage:"/contactPage/address card.png"},
+        {title:t('pages.contact.numbers'), Content:()=><ContactNumberCardContent />, cardImage:"/contactPage/contact card.png"},
+        {title:t('pages.contact.email'), Content: ()=><EmailCardContent />, cardImage:"/contactPage/email card.png"},
     ]
 
     const sendMail = e => {
@@ -59,7 +60,7 @@ function ContactUs(props){
 
     return(
         <div>
-            <PageBanner bannerTitle="Contact Us" 
+            <PageBanner bannerTitle={t('pages.contact.banner')} 
             bannerImageURL="/banners/contactPageBanner.jpg" />
             {isMobile ? <><br /><br /></> :<><br /><br /><br /><br /><br /><br /></>}
             <div className={isMobile?"":"container"}>
@@ -67,12 +68,12 @@ function ContactUs(props){
                     fontSize:isMobile?57:37
                 }} 
                 className="company-text text-center fw-bold mb-4">
-                    Get in touch with us
+                    {t('pages.contact.title')}
                 </h5>
                 <p style={{
                     fontSize:isMobile?30:22
                 }} className="company-text text-center text-theme">
-                    View our all contacts
+                    {t('pages.contact.subtitle')}
                 </p>
                 <br /><br /><br /><br />
                 <div className={`d-flex ${isMobile&&"flex-column"} align-items-center justify-content-center flex-wrap gap-5`}>
@@ -106,36 +107,36 @@ function ContactUs(props){
                         <label style={{
                             fontSize:isMobile?27:""
                         }} 
-                        for="nameInputContact" className="form-label">Name</label>
+                        htmlFor="nameInputContact" className="form-label">{t('pages.contact.name')}</label>
                         <input className="form-control form-control-lg border-3" id="nameInputContact"/>
                     </div>
                     <div className="mb-3">
                         <label style={{
                             fontSize:isMobile?27:""
                         }} 
-                        for="emailInputeContact" className="form-label">Email address</label>
+                        htmlFor="emailInputeContact" className="form-label">{t('pages.contact.emailAddress')}</label>
                         <input type="email" className="form-control form-control-lg border-3" id="emailInputeContact" aria-describedby="emailHelp"/>
                     </div>
                     <div className="mb-3">
                         <label style={{
                             fontSize:isMobile?27:""
                         }} 
-                        for="SubjectInputContact" className="form-label">Subject</label>
+                        htmlFor="SubjectInputContact" className="form-label">{t('pages.contact.subject')}</label>
                         <input className="form-control form-control-lg border-3" id="SubjectInputContact"/>
                     </div>
                     <div className="mb-3">
                         <label style={{
                             fontSize:isMobile?27:""
                         }} 
-                        for="messageInputContact" className="form-label">Message</label>
+                        htmlFor="messageInputContact" className="form-label">{t('pages.contact.message')}</label>
                         <textarea style={{whiteSpace:"pre-wrap"}} 
                         className="form-control form-control-lg border-3" id="messageInputContact"/>
-                        <div className="form-text">We respond within 2 days.</div>
+                        <div className="form-text">{t('pages.contact.response')}</div>
                     </div>
                     <div className="d-flex justify-content-end">
                         <button type="submit"
                         className="btn btn-lg btn-outline-theme">
-                            Submit
+                            {t('pages.contact.submit')}
                         </button>
                     </div>
                 </form>

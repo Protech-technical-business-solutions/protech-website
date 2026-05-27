@@ -1,4 +1,4 @@
-import { StrictMode, useState, useEffect } from 'react'
+import { StrictMode, useState, useEffect, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
@@ -18,6 +18,7 @@ import SiteWorksPage from './pages/siteWorks/index.jsx';
 // other stuff
 import MyContext from "./config/contextFile.jsx"
 import { useMediaQuery } from 'react-responsive'
+import { createTranslator, defaultLocale } from './config/localization'
 
 
 // as we require Header and Footer in every page and we dont wish to recreate them,
@@ -53,9 +54,54 @@ const MyApp = props => {
     const isMobile = useMediaQuery({ 
       query: '(max-width: 768px), (max-width: 1024px) and (orientation: portrait)' 
     });
+    const [locale, setLocale] = useState(() => localStorage.getItem('protech-locale') || defaultLocale)
+    const t = useMemo(() => createTranslator(locale), [locale])
+    const tidioSrc = '//code.tidio.co/zkkafcq226xojixhiercjhd1zpwmrn8q.js'
+
+const teardownTidio = () => {
+  const selectors = [
+    '#tidio-chat-script',
+    'script[src*="code.tidio.co"]',
+    '#tidio-chat',
+    '#tidio-chat-code',
+    '#tidio-chat-iframe',
+    'iframe[src*="tidio.co"]',
+    'iframe[src*="tidio.com"]'
+  ]
+
+  selectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((node) => node.remove())
+  })
+
+  delete window.tidioChatApi
+  delete window.tidioIdentify
+  delete document.tidioChatLang  // ✅ clear this too
+}
+
+useEffect(() => {
+  document.documentElement.lang = locale
+  localStorage.setItem('protech-locale', locale)
+
+  document.tidioChatLang = locale
+
+  teardownTidio()
+
+  const timer = setTimeout(() => {
+    const script = document.createElement('script')
+    script.id = 'tidio-chat-script'
+    script.src = tidioSrc
+    script.async = true
+    document.body.appendChild(script)
+  }, 300)
+
+  return () => {
+    clearTimeout(timer)
+    teardownTidio()
+  }
+}, [locale])
 
   return (
-    <MyContext.Provider value={ {isMobile:isMobile} }> {/* wrapping everything under our context */}
+    <MyContext.Provider value={{ isMobile, locale, setLocale, isArabic: locale === 'ar', t }}>
       
       <RouterProvider router={protechRouter} />
     

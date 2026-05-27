@@ -3,7 +3,7 @@ import MyContext from "../../config/contextFile"
 import { Link } from "react-router-dom";
 
 const Carousel = () => {
-  const { isMobile } = useContext(MyContext);
+  const { isMobile, t } = useContext(MyContext);
   return (
 <div id="protechCarouselAutoPlay" style={{marginBottom: isMobile ? "" : "120px"}}
 className="carousel slide" data-bs-ride="carousel">
@@ -18,20 +18,20 @@ className="carousel slide" data-bs-ride="carousel">
     <div className={`carousel-item ${i === 1 ? "active" : ""}`} style={{height: "100%"}}>
       <img src={`/carousel/${i}.jpg`} className="d-block w-100" style={{height: "100%", objectFit: "cover"}} alt="..."/>
       <div className="carousel-content">
-        <h5 style={{fontSize: isMobile ? 55 : 50}} className="mb-0">Welcome to</h5>
+        <h5 style={{fontSize: isMobile ? 55 : 50}} className="mb-0">{t('home.hero.welcome')}</h5>
         <p style={{fontSize: isMobile ? 65 : 80}} className="fw-bold mb-0">
-          PRO<span className="text-theme">TECH</span>
+          {t('home.hero.brandPro')}<span className="text-theme">{t('home.hero.brandTech')}</span>
         </p>
-        <p style={{fontSize: isMobile ? 30 : 30}}>Design, Build, Install & Maintain</p>
+        <p style={{fontSize: isMobile ? 30 : 30}}>{t('home.hero.subtitle')}</p>
         <br />
         <div className="d-flex gap-4">
           <Link to="/about-us" 
           className={`aboutUSCarouselBtn text-decoration-none cursor-pointer ${isMobile ? "p-4" : "py-3 px-5"}`}>
-            ABOUT US
+            {t('home.hero.about')}
           </Link>
           <Link to="services" 
           className={`servicesCarouselBtn text-decoration-none cursor-pointer ${isMobile ? "p-4" : "py-3 px-5"}`}>
-            SERVICES
+            {t('home.hero.services')}
           </Link>
         </div>
       </div>

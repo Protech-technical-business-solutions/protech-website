@@ -6,18 +6,18 @@ import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
 
-  const {isMobile} = useContext(MyContext);
+  const {isMobile, t} = useContext(MyContext);
   const navigate = useNavigate()
 
   const services = [
     {
-      title:"Architecture",
-      content: "We Provide Interior Architecture Services to our valuable clients across Saudi Arabia",
+      title: t('home.main.architecture.title'),
+      content: t('home.main.architecture.content'),
       iconImage: "/mainServiceSection/architect.png"
     },
     {
-      title:"Construction",
-      content: "We also offer turnkey solutions for all types of building construction projects.",
+      title: t('home.main.construction.title'),
+      content: t('home.main.construction.content'),
       iconImage: "/mainServiceSection/construction.png"
     }
   ];
@@ -33,14 +33,14 @@ const Services = () => {
         <div>
           <p style={{fontSize: isMobile ? 34 : 22, marginBottom: isMobile ? 40 : 10}}
           className="company-text mt-5 text-theme fw-bolder">
-            We offer the best services
+            {t('home.main.eyebrow')}
           </p>
           <div style={{height: isMobile ? 150 : 120, marginBottom: isMobile ? "20px" : ""}}>
             <h3 className='company-text text-dark' style={{fontSize: isMobile ? 65 : 37, lineHeight: isMobile ? "90px" : "50px"}}>
-            We offer the best services
+            {t('home.main.title1')}
             </h3>
             <h3 className='company-text text-dark' style={{fontSize: isMobile ? 65 : 37, lineHeight: isMobile ? "90px" : "50px"}}>
-            for our clients
+            {t('home.main.title2')}
             </h3>
           </div>
           {isMobile && <>
@@ -57,11 +57,11 @@ const Services = () => {
           </div>
           <p style={{width: isMobile ? "auto" : 470, fontSize: isMobile ? 34 : 20, lineHeight: isMobile ? "38px" : "33px", marginBottom: isMobile ? "35px" : ""}}
           className="company-text fw-normal">
-          Protech Group provides a complete range of Interior Design, and Electro Mechanical Services.
+          {t('home.main.intro')}
           </p>
           <p style={{width: isMobile ? "auto" : 670, fontSize: isMobile ? 28 : 15, lineHeight: isMobile ? "36px" : "31px", color: "#666666", marginBottom: isMobile ? "85px" : ""}}
           className="mt-3">
-            Protech Group was formed with one visionary mind set to allow property owners, developers, architects and general contractors to deliver a competitive edge for their projects. Capital Dynamics provides a complete range of Interior Design, Fitout Works and Electro Mechanical services though highly experienced Engineering & Project Management team fully complying to time, cost and quality requirements of projects.
+            {t('home.main.body')}
           </p>
           <div className="d-flex gap-4 mt-4 flex-wrap">
             {services.map(service =>
@@ -99,7 +99,7 @@ const Services = () => {
               }} onClick={() => {window.scrollTo(0,0);navigate("/services")}} 
               className="btn-getQuote d-flex align-items-center">
                   <span className='mx-3' style={{fontSize: isMobile ? 34 : 18}}>
-                    READ MORE
+                    {t('home.main.readMore')}
                   </span>
               </button>
               <button style={{height: 55, 
@@ -108,7 +108,7 @@ const Services = () => {
               }} onClick={() => {window.scrollTo(0,0);navigate("/services")}}
               className="btn-getQuote d-flex align-items-center">
                   <span className='mx-3' style={{fontSize: isMobile ? 34 : 18}}>
-                    GET BROCHURE
+                    {t('home.main.getBrochure')}
                   </span>
               </button>
           </div>

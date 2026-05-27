@@ -6,18 +6,18 @@ import { Link } from 'react-router-dom';
 import { FaAnglesRight } from "react-icons/fa6";
 
 const Features = () => {
-  const {isMobile} = useContext(MyContext);
+  const {isMobile, t} = useContext(MyContext);
   return (
     <div className='position-relative' 
     style={{backgroundImage:"url(/featuresBG.jpg)",minHeight:380,height:"auto"}}>
         <div className={`${isMobile?"pb-4 p-5":"position-absolute"} w-100`} style={{bottom:"25%"}}>
           <div className={`d-flex flex-wrap justify-content-around ${isMobile?"flex-column justify-content-center gap-4 align-items-center pt-4":""}`}>
-            <FeatureCard isMobile={isMobile} BGcolorClass="bg-theme" iconImage="buildingLogo.png" title="Quality Products"
-            content="To meet the various requirements of the customers, we are involved in providing best industrial quality products." />
-            <FeatureCard isMobile={isMobile} BGcolorClass="bg-dark" iconImage="group.png" title="Experienced Professionals"
-            content="We provide experienced professionals staffing services. We have a team of professionals who have devoted much time in the work field."/>
-            <FeatureCard isMobile={isMobile} BGcolorClass="bg-white" iconImage="support.png" title="Customer Support" 
-            content="Our organization is indulged in offering Customer Care Service to our clients. Any service is incomplete without proper customer service."/>
+            <FeatureCard isMobile={isMobile} BGcolorClass="bg-theme" iconImage="buildingLogo.png" title={t('home.features.qualityTitle')}
+            content={t('home.features.qualityContent')} readLabel={t('home.features.readMore')} />
+            <FeatureCard isMobile={isMobile} BGcolorClass="bg-dark" iconImage="group.png" title={t('home.features.professionalsTitle')}
+            content={t('home.features.professionalsContent')} readLabel={t('home.features.readMore')} />
+            <FeatureCard isMobile={isMobile} BGcolorClass="bg-white" iconImage="support.png" title={t('home.features.supportTitle')} 
+            content={t('home.features.supportContent')} readLabel={t('home.features.readMore')} />
             <br />
           </div>
         </div>
@@ -44,7 +44,7 @@ function FeatureCard(props){
         onMouseEnter={() => setReadButtonHovered(true)}
         onMouseLeave={() => setReadButtonHovered(false)}
         className={`mt-1 fw-bold text-decoration-none ${readButtonHovered ? props.BGcolorClass === "bg-dark" ? "text-white" : "text-dark" : props.BGcolorClass === "bg-theme" ? "text-white" : "text-theme"}`}>
-          Read more &nbsp;
+          {props.readLabel || 'Read more'} &nbsp;
           <FaAnglesRight />
         </Link>
       </div>

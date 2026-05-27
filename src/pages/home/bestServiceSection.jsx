@@ -2,25 +2,25 @@ import React, { useContext } from 'react';
 import MyContext from "../../config/contextFile"
 
 const Services = () => {
-  const services = [
+  const {isMobile, t} = useContext(MyContext)
+
+  const localizedServices = [
     {
-      title:"Design",
-      content: "With the assistance of skilled team of professionals, we are offering the Design Works.",
+      title: t('home.best.design'),
+      content: t('home.best.designContent'),
       cardImge: "/bestServiceSection/design.png"
     },
     {
-      title:"Build",
-      content: "Assisted by rich industrial experience and modern technical knowledge, we are able to offer Building Work Service.",
+      title: t('home.best.build'),
+      content: t('home.best.buildContent'),
       cardImge: "/bestServiceSection/build.png"
     },
     {
-      title:"Maintenance",
-      content: "With the support and sincere efforts put by our experienced professionals, we provide maintenance services.",
+      title: t('home.best.maintenance'),
+      content: t('home.best.maintenanceContent'),
       cardImge: "/bestServiceSection/maintenance.png"
     }
-  ];
-
-  const {isMobile} = useContext(MyContext)
+  ]
 
   return (
     <section className="mt-5 mb-5">
@@ -29,15 +29,15 @@ const Services = () => {
           fontSize:isMobile?57:""
         }} 
         className="font-Raleway fw-bold text-center">
-            What We Offer
+          {t('home.best.title')}
         </h1>
         <p style={{fontSize:isMobile?30:22}} 
         className="mt-3 text-theme fw-bold text-center font-Raleway">
-            Our best services
+          {t('home.best.subtitle')}
         </p>
         <br /><br />
         <div className={`d-flex flex-wrap justify-content-center gap-4 ${isMobile&&"flex-column align-items-center"}`}>
-            {services.map(service=>
+            {localizedServices.map((service, index)=>
                 <div style={{
                     backgroundImage:`url('${service.cardImge}')`,
                     position:"relative",
@@ -47,7 +47,7 @@ const Services = () => {
                 }}>
                     <h3 style={{
                         fontSize:isMobile?42:22,
-                        left: service.title=="Design" ? "40%": service.title=="Build" ?  "42%":"30%",
+                  left: index === 0 ? "40%": index === 1 ?  "42%":"30%",
                         top: "24%",
                     }} 
                     className="company-text fw-bold position-absolute">

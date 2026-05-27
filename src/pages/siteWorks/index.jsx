@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import PageBanner from "../../components/PageBanner";
 
 import allFiles from "./nameOfFiles" // name of all the files we want to display here
+import MyContext from "../../config/contextFile";
 
 
 function divideArray(arr) { // dividing an array into subarrays
@@ -18,23 +20,24 @@ function divideArray(arr) { // dividing an array into subarrays
 
 
 export default function SiteWorksPage(props){
+    const { t } = useContext(MyContext);
     let allFileNamesInChunks = divideArray(allFiles); // we need to divide this array into 3 chunks
     
     return (
         <div>
-            <PageBanner bannerTitle="Site Works"
+            <PageBanner bannerTitle={t('pages.siteWorks.banner')}
              bannerImageURL="/banners/siteWorksPageBanner2.webp" />
             <br /><br /><br /><br />
             <h5 style={{
                 fontSize:37
             }} 
             className="company-text text-center fw-bold mb-4">
-                Our Site Works
+                {t('pages.siteWorks.title')}
             </h5>
             <p style={{
                 fontSize:22
             }} className="company-text text-center text-theme">
-                View our work
+                {t('pages.siteWorks.subtitle')}
             </p>
             <br /><br /><br />
             <div className="row">

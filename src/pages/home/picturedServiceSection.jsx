@@ -7,7 +7,7 @@ import { FaAnglesRight } from "react-icons/fa6";
 
 const Services = () => {
 
-    const {isMobile} = useContext(MyContext)
+    const {isMobile, t} = useContext(MyContext)
   return (
     <div className={`${isMobile?"py-4 flex-column":""} d-flex flex-wrap align-items-center justify-content-center gap-5`} 
     style={{minHeight:650,
@@ -25,7 +25,7 @@ const Services = () => {
                 fontSize:isMobile?50:""
             }} 
             className="company-text text-white position-absolute">
-                Interior Designing
+                {t('home.pictured.interior')}
             </p>
             <HashLink to="/services#Interior Design"> {/* needed to get into that specific div with the ID "Interior Design"!! */}
                 <button style={{
@@ -35,7 +35,7 @@ const Services = () => {
                     fontSize:isMobile?25:""
                 }}
                 className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    Read more &nbsp;
+                    {t('home.pictured.readMore')} &nbsp;
                     <FaAnglesRight />
                 </button>
             </HashLink>
@@ -53,7 +53,7 @@ const Services = () => {
                 fontSize:isMobile?50:""
             }} 
             className="company-text text-white position-absolute">
-                MEP Works
+                {t('home.pictured.mep')}
             </p>
             <HashLink to="/services#MEP Works">
                 <button style={{
@@ -63,7 +63,7 @@ const Services = () => {
                     fontSize:isMobile?25:""
                 }}
                 className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    Read more &nbsp;
+                    {t('home.pictured.readMore')} &nbsp;
                     <FaAnglesRight />
                 </button>
             </HashLink>
@@ -81,7 +81,7 @@ const Services = () => {
                 fontSize:isMobile?50:""
             }} 
             className="company-text text-white position-absolute">
-                Construction Works
+                {t('home.pictured.construction')}
             </p>
             <HashLink to="/services#Construction Services">
                 <button style={{
@@ -91,7 +91,7 @@ const Services = () => {
                     fontSize:isMobile?25:""
                 }}
                 className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    Read more &nbsp;
+                    {t('home.pictured.readMore')} &nbsp;
                     <FaAnglesRight />
                 </button>
             </HashLink>

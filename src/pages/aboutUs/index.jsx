@@ -4,10 +4,10 @@ import MyContext from "../../config/contextFile"
 import PageBanner from "../../components/PageBanner"
 
 function AboutUs(props){
-    const {isMobile} = useContext(MyContext)
+    const {isMobile, t} = useContext(MyContext)
     return(
         <div>
-            <PageBanner bannerTitle="About Us" 
+            <PageBanner bannerTitle={t('pages.about.banner')} 
             bannerImageURL="/banners/aboutPageBanner.webp" />
             {isMobile? <><br /><br /></> : <><br /><br /><br /><br /><br /></>}
             <div className="container">
@@ -15,19 +15,19 @@ function AboutUs(props){
                     fontSize:isMobile?57:37
                 }} 
                 className="company-text text-center fw-bold mb-4">
-                    About Protech Group
+                    {t('pages.about.title')}
                 </h5>
                 <p style={{
                     fontSize:isMobile?33:22
                 }} className="company-text text-center text-theme">
-                    know more about us
+                    {t('pages.about.subtitle')}
                 </p>
                 {isMobile?<br /> : <><br /><br /><br /><br /><br /></>}
                 <div className={`d-flex gap-5 ${isMobile?"flex-wrap":""}`}>
                     <div>
                         <p style={{fontSize:isMobile?25:15, lineHeight:"33px", color:"#666666"}}
                         className="mt-3">
-                                Protech is empowered with the fnest ﬂeet of Architects, Civil, Structural, Mechanical & Electrical Engineers as the stamp of distinctive genius for clarity and precision in the projects we execute. The combination of the wide range of knowledge and experience in this feld allows us for a creative and practical engineering solutions and implementations. We have grown exponentially and have always maintained commitment to provide the best craftsmanship and level of expertise to meet our client's requirements. All disciplines are housed and managed within a single company in order to maximize coordination, communication and effciency. This all creates a truly legitimate MEP construction and service company.
+                            {t('pages.about.body1')}
                         </p>
                     </div>
                     <img style={{
@@ -37,7 +37,7 @@ function AboutUs(props){
                 </div>
                 <br />
                 <p style={{fontSize:isMobile?25:15, lineHeight:"33px", color:"#666666"}}>
-                    Protech was formed with one visionary mind set to allow property owners, developers, architects and general contractors to deliver a competitive edge for their projects. Capital Dynamics provides a complete range of Interior Design, Fitout Works and Electro Mechanical services though highly experienced Engineering & Project Management teamfully complying to time, cost and quality requirements of projects.     
+                    {t('pages.about.body2')}     
                 </p>
                 {isMobile?<br /> : <><br /><br /><br /><br /><br /></>}
             </div>

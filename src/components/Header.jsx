@@ -5,14 +5,16 @@ import { NavLink,Link, useNavigate } from "react-router-dom";
 import { IoIosCall } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { localizeDigits } from '../config/localization';
 
 // our context
 import MyContext from '../config/contextFile';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { isMobile } = useContext(MyContext);
+  const { isMobile, locale, setLocale, isArabic, t } = useContext(MyContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const primaryPhone = localizeDigits('(+966) 572744600', locale);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -21,10 +23,22 @@ const Header = () => {
     <>
     <header className="w-100">
       <div className="text-light bg-black2grey">
-        <div className="container">
-          <p style={{fontSize: isMobile ? 23 : 14, paddingTop: isMobile ? 30 : 4, paddingBottom: isMobile ? 30 : 3.5}}>
-            Welcome to Protech Technical Solutions & Business Services
+        <div className="container position-relative d-flex align-items-center header-top-strip">
+          <p className="header-top-message" style={{fontSize: isMobile ? 23 : 14, paddingTop: isMobile ? 30 : 4, paddingBottom: isMobile ? 30 : 3.5, paddingRight: isMobile ? 170 : 220, marginBottom: 0, width: '100%'}}>
+            {t('header.welcome')}
           </p>
+          <label className="switch switch--locale mb-0 header-locale-switch" aria-label="Language switch" style={{position: 'absolute', right: isMobile ? 8 : 12, top: '50%', transform: `translateY(-50%) scale(${isMobile ? 0.9 : 1})`, transformOrigin: 'center', padding: '6px 8px'}}>
+            <input
+              type="checkbox"
+              checked={isArabic}
+              onChange={() => setLocale(locale === 'ar' ? 'en' : 'ar')}
+            />
+            <span className="switch__track">
+              <span className="switch__label switch__label--en">EN</span>
+              <span className="switch__label switch__label--ar">عربي</span>
+              <span className="switch__thumb" />
+            </span>
+          </label>
         </div>
       </div>
 
@@ -37,8 +51,8 @@ const Header = () => {
             <img src="/logo2.svg" alt="Logo" height={isMobile ? 140 : 150} />
           </div>
           <div className={`d-flex ${isMobile ? "flex-column gap-5 mt-5 w-100" : "justify-content-between gap-5"}`}>
-            <InfoSection Icon={IoIosCall} title="Call us:" content="(+966) 572744600" linkToOpen="tel:+966572744600" iconSize={isMobile ? 30 : 20} />
-            <InfoSection Icon={FaLocationDot} title="Find us:" content="Office 08, 1st Floor, Bldg 7021, Abdullah Al-Hamadhani St, Al Malaz, Riyadh 12836" linkToOpen="https://maps.app.goo.gl/Ngp9yrfrA1Yjmaxw7" iconSize={isMobile ? 30 : 15} />
+            <InfoSection Icon={IoIosCall} title={t('header.callUs')} content={primaryPhone} linkToOpen="tel:+966572744600" iconSize={isMobile ? 30 : 20} />
+            <InfoSection Icon={FaLocationDot} title={t('header.findUs')} content={t('header.address')} linkToOpen="https://maps.app.goo.gl/Ngp9yrfrA1Yjmaxw7" iconSize={isMobile ? 30 : 15} />
           </div>
         </div>
       </div>
@@ -55,8 +69,8 @@ const Header = () => {
               }}>
                 <img src="/logo2.svg" alt="Protech Logo" height={65} />
               </div>
-              <p style={{fontSize: 52}} className="fw-bold mb-0 text-light">
-                PRO<span className="text-theme">TECH</span>
+              <p style={{fontSize: 52}} className="fw-bold mb-0 text-light company-name-text">
+                {t('brand.short')}
               </p>
             </div>
           )}
@@ -102,7 +116,7 @@ const Header = () => {
                     borderBottom: isMobile ? '1px solid rgba(255,255,255,0.2)' : 'none'
                   }}
                 >
-                  HOME
+                  {t('header.nav.home')}
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -120,7 +134,7 @@ const Header = () => {
                     borderBottom: isMobile ? '1px solid rgba(255,255,255,0.2)' : 'none'
                   }}
                 >
-                  ABOUT US
+                  {t('header.nav.about')}
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -138,7 +152,7 @@ const Header = () => {
                     borderBottom: isMobile ? '1px solid rgba(255,255,255,0.2)' : 'none'
                   }}
                 >
-                  SERVICES
+                  {t('header.nav.services')}
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -156,7 +170,7 @@ const Header = () => {
                     borderBottom: isMobile ? '1px solid rgba(255,255,255,0.2)' : 'none'
                   }}
                 >
-                  SITE WORKS
+                  {t('header.nav.siteWorks')}
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -174,7 +188,7 @@ const Header = () => {
                     borderBottom: isMobile ? '1px solid rgba(255,255,255,0.2)' : 'none'
                   }}
                 >
-                  CONTACT US
+                  {t('header.nav.contact')}
                 </NavLink>
               </li>
             </ul>
@@ -190,7 +204,7 @@ const Header = () => {
                 fontWeight: '700'
               }}>
                 <span className='fw-bold'>
-                  GET A QUOTATION
+                  {t('header.quote')}
                 </span>
               </button>
             </div>
