@@ -54,54 +54,44 @@ const MyApp = props => {
     const isMobile = useMediaQuery({ 
       query: '(max-width: 768px), (max-width: 1024px) and (orientation: portrait)' 
     });
-    const [locale, setLocale] = useState(() => localStorage.getItem('protech-locale') || defaultLocale)
+
+    // locale is read-only from localStorage — changes trigger a full reload
+    const [locale] = useState(() => localStorage.getItem('protech-locale') || defaultLocale)
     const t = useMemo(() => createTranslator(locale), [locale])
-    const tidioSrc = '//code.tidio.co/zkkafcq226xojixhiercjhd1zpwmrn8q.js'
 
-const teardownTidio = () => {
-  const selectors = [
-    '#tidio-chat-script',
-    'script[src*="code.tidio.co"]',
-    '#tidio-chat',
-    '#tidio-chat-code',
-    '#tidio-chat-iframe',
-    'iframe[src*="tidio.co"]',
-    'iframe[src*="tidio.com"]'
-  ]
+    // Changing locale saves to localStorage and reloads the page so Tidio
+    // re-initializes from scratch with document.tidioChatLang already set.
+    // This is the only reliable way to change Tidio's language — there is no
+    // setLanguage API, and in-place script reinjection leaves stale memory state.
+    const handleLocaleChange = (newLocale) => {
+      localStorage.setItem('protech-locale', newLocale)
+      window.location.reload()
+    }
 
-  selectors.forEach((selector) => {
-    document.querySelectorAll(selector).forEach((node) => node.remove())
-  })
+    // Load Tidio once on mount. By this point document.tidioChatLang is already
+    // set (below), so Tidio picks up the correct language on first execution.
+    useEffect(() => {
+      document.documentElement.lang = locale
+      document.tidioChatLang = locale
 
-  delete window.tidioChatApi
-  delete window.tidioIdentify
-  delete document.tidioChatLang  // ✅ clear this too
-}
+      const script = document.createElement('script')
+      script.id = 'tidio-chat-script'
+      script.src = '//code.tidio.co/zkkafcq226xojixhiercjhd1zpwmrn8q.js'
+      script.async = true
+      document.body.appendChild(script)
 
-useEffect(() => {
-  document.documentElement.lang = locale
-  localStorage.setItem('protech-locale', locale)
-
-  document.tidioChatLang = locale
-
-  teardownTidio()
-
-  const timer = setTimeout(() => {
-    const script = document.createElement('script')
-    script.id = 'tidio-chat-script'
-    script.src = tidioSrc
-    script.async = true
-    document.body.appendChild(script)
-  }, 300)
-
-  return () => {
-    clearTimeout(timer)
-    teardownTidio()
-  }
-}, [locale])
+      return () => {
+        document.querySelectorAll(
+          '#tidio-chat-script, script[src*="code.tidio.co"], #tidio-chat, #tidio-chat-code, #tidio-chat-iframe, iframe[src*="tidio.co"], iframe[src*="tidio.com"]'
+        ).forEach(n => n.remove())
+        delete window.tidioChatApi
+        delete window.tidioIdentify
+        delete document.tidioChatLang
+      }
+    }, []) // empty deps — runs once per page load
 
   return (
-    <MyContext.Provider value={{ isMobile, locale, setLocale, isArabic: locale === 'ar', t }}>
+    <MyContext.Provider value={{ isMobile, locale, setLocale: handleLocaleChange, isArabic: locale === 'ar', t }}>
       
       <RouterProvider router={protechRouter} />
     
