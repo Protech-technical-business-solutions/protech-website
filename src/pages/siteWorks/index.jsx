@@ -22,52 +22,33 @@ function divideArray(arr) { // dividing an array into subarrays
 export default function SiteWorksPage(props){
     const { t } = useContext(MyContext);
     let allFileNamesInChunks = divideArray(allFiles); // we need to divide this array into 3 chunks
-    
+
     return (
         <div>
             <PageBanner bannerTitle={t('pages.siteWorks.banner')}
              bannerImageURL="/banners/siteWorksPageBanner2.webp" />
-            <br /><br /><br /><br />
-            <h5 style={{
-                fontSize:37
-            }} 
-            className="company-text text-center fw-bold mb-4">
-                {t('pages.siteWorks.title')}
-            </h5>
-            <p style={{
-                fontSize:22
-            }} className="company-text text-center text-theme">
-                {t('pages.siteWorks.subtitle')}
-            </p>
-            <br /><br /><br />
-            <div className="row">
-                {allFileNamesInChunks.map(column=>
-                    <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                        {column.map(filename =>{
-                            if(filename.endsWith(".mp4")){
-                                return <div className="d-flex justify-content-center">
-                                    <video style={{
-                                        objectFit:"fill",
-                                        marginBottom:10,
-                                        width:"100%",
-                                    }} muted={true}
-                                    playsInline={true} autoPlay={true}
-                                    src={`/siteWorksPage/${filename}`} />
-                                </div>
-                            }else{
-                                return <div className="d-flex justify-content-center">
-                                    <img style={{
-                                        objectFit:"fill",
-                                        marginBottom:10,
-                                        width:"100%",
-                                    }}
-                                    src={`/siteWorksPage/${filename}`} alt="our work image" />
-                                </div>
-                            }
-                        })}
+            <section className="section">
+                <div className="container-xxl">
+                    <div className="section-head">
+                        <h2 className="section-title">{t('pages.siteWorks.title')}</h2>
+                        <p className="section-sub">{t('pages.siteWorks.subtitle')}</p>
+                        <div className="title-bar" />
                     </div>
-                )}
-            </div>
+                    <div className="row g-3">
+                        {allFileNamesInChunks.map((column, colIdx) =>
+                            <div className="col-12 col-md-6 col-lg-4 d-flex flex-column gap-3" key={colIdx}>
+                                {column.map(filename =>
+                                    filename.endsWith(".mp4")
+                                        ? <video key={filename} className="gallery-item" muted playsInline autoPlay loop
+                                            preload="metadata" src={`/siteWorksPage/${filename}`} />
+                                        : <img key={filename} className="gallery-item" loading="lazy"
+                                            src={`/siteWorksPage/${filename}`} alt="our work image" />
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

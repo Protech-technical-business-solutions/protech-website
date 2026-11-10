@@ -2,73 +2,35 @@ import React, { useContext } from 'react';
 import MyContext from "../../config/contextFile"
 
 const Services = () => {
-  const {isMobile, t} = useContext(MyContext)
+  const { t } = useContext(MyContext)
 
   const localizedServices = [
-    {
-      title: t('home.best.design'),
-      content: t('home.best.designContent'),
-      cardImge: "/bestServiceSection/design.png"
-    },
-    {
-      title: t('home.best.build'),
-      content: t('home.best.buildContent'),
-      cardImge: "/bestServiceSection/build.png"
-    },
-    {
-      title: t('home.best.maintenance'),
-      content: t('home.best.maintenanceContent'),
-      cardImge: "/bestServiceSection/maintenance.png"
-    }
+    { title: t('home.best.design'), content: t('home.best.designContent'), cardImage: "/bestServiceSection/design.png" },
+    { title: t('home.best.build'), content: t('home.best.buildContent'), cardImage: "/bestServiceSection/build.png" },
+    { title: t('home.best.maintenance'), content: t('home.best.maintenanceContent'), cardImage: "/bestServiceSection/maintenance.png" },
   ]
 
   return (
-    <section className="mt-5 mb-5">
-        <br /><br />
-        <h1 style={{
-          fontSize:isMobile?57:""
-        }} 
-        className="font-Raleway fw-bold text-center">
-          {t('home.best.title')}
-        </h1>
-        <p style={{fontSize:isMobile?30:22}} 
-        className="mt-3 text-theme fw-bold text-center font-Raleway">
-          {t('home.best.subtitle')}
-        </p>
-        <br /><br />
-        <div className={`d-flex flex-wrap justify-content-center gap-4 ${isMobile&&"flex-column align-items-center"}`}>
-            {localizedServices.map((service, index)=>
-                <div style={{
-                    backgroundImage:`url('${service.cardImge}')`,
-                    position:"relative",
-                    width:isMobile?"70%":359,
-                    height: isMobile?832:432,
-                    backgroundSize:"cover"
-                }}>
-                    <h3 style={{
-                        fontSize:isMobile?42:22,
-                  left: index === 0 ? "40%": index === 1 ?  "42%":"30%",
-                        top: "24%",
-                    }} 
-                    className="company-text fw-bold position-absolute">
-                        {service.title}
-                    </h3>
-                    <p style={{
-                        color:"#666666",
-                        fontSize:isMobile?30:15,
-                        lineHeight:isMobile?"":"31px",
-                        bottom:"1%",
-                        left: "4%",
-                        width:isMobile?"":340  
-                    }} 
-                    className="position-absolute">
-                        {service.content}
-                    </p>
-                </div>
-            )}
+    <section className="section">
+      <div className="container">
+        <div className="section-head">
+          <h2 className="section-title">{t('home.best.title')}</h2>
+          <p className="section-sub">{t('home.best.subtitle')}</p>
+          <div className="title-bar" />
         </div>
-        <br /><br /><br />
-    </section>    
+        <div className="row g-4 justify-content-center">
+          {localizedServices.map(service =>
+            <div className="col-12 col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center" key={service.cardImage}>
+              {/* card artwork (hex icon + photo) is baked into the image; text sits in its white bands */}
+              <article className="offer-card" style={{ backgroundImage: `url('${service.cardImage}')` }}>
+                <h3 className="offer-card__title">{service.title}</h3>
+                <p className="offer-card__text">{service.content}</p>
+              </article>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
 

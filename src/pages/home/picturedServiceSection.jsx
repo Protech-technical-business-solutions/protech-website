@@ -3,100 +3,37 @@ import MyContext from "../../config/contextFile"
 
 import { HashLink } from 'react-router-hash-link'; // this is for navigating into a specific div (we need it as we used hashrouter!)
 
-import { FaAnglesRight } from "react-icons/fa6";
+import { FaAnglesRight, FaAnglesLeft } from "react-icons/fa6";
 
 const Services = () => {
+  const { t, isArabic } = useContext(MyContext)
+  const Arrow = isArabic ? FaAnglesLeft : FaAnglesRight;
+  const cards = [
+    { title: t('home.pictured.interior'), image: '/picturedServiceSection/interiorDesigning.png', target: '/services#Interior Design' },
+    { title: t('home.pictured.mep'), image: '/picturedServiceSection/HVAC.png', target: '/services#MEP Works' },
+    { title: t('home.pictured.construction'), image: '/picturedServiceSection/construction.png', target: '/services#Construction Services' },
+  ];
 
-    const {isMobile, t} = useContext(MyContext)
   return (
-    <div className={`${isMobile?"py-4 flex-column":""} d-flex flex-wrap align-items-center justify-content-center gap-5`} 
-    style={{minHeight:650,
-      backgroundImage:"url('/picturedServiceSection/bg.jpg')"}}>
-        <div style={{
-        height:isMobile?600:420,
-        width:isMobile?"70%":350,
-        backgroundSize:"cover",
-        position:"relative",
-        backgroundRepeat:"no-repeat",
-        backgroundImage:"url('/picturedServiceSection/interiorDesigning.png')"}}>
-            <p style={{
-                left:"20%",
-                top:"60%",
-                fontSize:isMobile?50:""
-            }} 
-            className="company-text text-white position-absolute">
-                {t('home.pictured.interior')}
-            </p>
-            <HashLink to="/services#Interior Design"> {/* needed to get into that specific div with the ID "Interior Design"!! */}
-                <button style={{
-                    height:isMobile?70:40,
-                    left:"20%",
-                    top:"75%",
-                    fontSize:isMobile?25:""
-                }}
-                className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    {t('home.pictured.readMore')} &nbsp;
-                    <FaAnglesRight />
-                </button>
-            </HashLink>
+    <section className="section pictured" style={{ backgroundImage: "url('/picturedServiceSection/bg.jpg')" }}>
+      <div className="container">
+        <div className="row g-4 justify-content-center">
+          {cards.map(card => (
+            <div className="col-12 col-sm-10 col-md-4" key={card.target}>
+              {/* HashLink scrolls to the section with that id on the services page */}
+              <HashLink smooth to={card.target} className="photo-card" style={{ backgroundImage: `url('${card.image}')` }}>
+                <span className="photo-card__body">
+                  <span className="photo-card__title">{card.title}</span>
+                  <span className="photo-card__btn">
+                    {t('home.pictured.readMore')} <Arrow size={12} />
+                  </span>
+                </span>
+              </HashLink>
+            </div>
+          ))}
         </div>
-        <div style={{
-        height:isMobile?600:420,
-        width:isMobile?"70%":350,
-        backgroundSize:"cover",
-        position:"relative",
-        backgroundRepeat:"no-repeat",
-        backgroundImage:"url('/picturedServiceSection/HVAC.png')"}}>
-            <p style={{
-                left:"33%",
-                top:"60%",
-                fontSize:isMobile?50:""
-            }} 
-            className="company-text text-white position-absolute">
-                {t('home.pictured.mep')}
-            </p>
-            <HashLink to="/services#MEP Works">
-                <button style={{
-                    height:isMobile?70:40,
-                    left:"25%",
-                    top:"75%",
-                    fontSize:isMobile?25:""
-                }}
-                className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    {t('home.pictured.readMore')} &nbsp;
-                    <FaAnglesRight />
-                </button>
-            </HashLink>
-        </div>
-        <div style={{
-        height:isMobile?600:420,
-        width:isMobile?"70%":350,
-        backgroundSize:"cover",
-        position:"relative",
-        backgroundRepeat:"no-repeat",
-        backgroundImage:"url('/picturedServiceSection/construction.png')"}}>
-            <p style={{
-                left:"22%",
-                top:"60%",
-                fontSize:isMobile?50:""
-            }} 
-            className="company-text text-white position-absolute">
-                {t('home.pictured.construction')}
-            </p>
-            <HashLink to="/services#Construction Services">
-                <button style={{
-                    height:isMobile?70:40,
-                    left:"25%",
-                    top:"75%",
-                    fontSize:isMobile?25:""
-                }}
-                className="btn-getQuote rounded-pill px-5 d-flex align-items-center fw-bold position-absolute">
-                    {t('home.pictured.readMore')} &nbsp;
-                    <FaAnglesRight />
-                </button>
-            </HashLink>
-        </div>
-    </div>
+      </div>
+    </section>
   );
 };
 

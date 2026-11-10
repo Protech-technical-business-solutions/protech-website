@@ -1,13 +1,9 @@
-// components/Services.js
 import React, { useContext } from 'react';
 import MyContext from '../../config/contextFile';
-
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
-
-  const {isMobile, t} = useContext(MyContext);
-  const navigate = useNavigate()
+  const { t } = useContext(MyContext);
 
   const services = [
     {
@@ -23,106 +19,44 @@ const Services = () => {
   ];
 
   return (
-    <div className={`d-flex gap-5 flex-wrap ${isMobile ? "px-4 mx-4" : "container"}`} 
-    style={{
-      minHeight: isMobile ? 900 : 841,
-      padding: isMobile ? "20px" : "",
-      backgroundImage: "url('/mainServiceSection/background.jpg')"
-    }}>
-        
-        <div>
-          <p style={{fontSize: isMobile ? 34 : 22, marginBottom: isMobile ? 40 : 10}}
-          className="company-text mt-5 text-theme fw-bolder">
-            {t('home.main.eyebrow')}
-          </p>
-          <div style={{height: isMobile ? 150 : 120, marginBottom: isMobile ? "20px" : ""}}>
-            <h3 className='company-text text-dark' style={{fontSize: isMobile ? 65 : 37, lineHeight: isMobile ? "90px" : "50px"}}>
-            {t('home.main.title1')}
-            </h3>
-            <h3 className='company-text text-dark' style={{fontSize: isMobile ? 65 : 37, lineHeight: isMobile ? "90px" : "50px"}}>
-            {t('home.main.title2')}
-            </h3>
-          </div>
-          {isMobile && <>
-            <br /><br />
-          </>}
-          <div className='bg-theme'
-          style={{
-            minWidth: isMobile ? 170 : 100,
-            width: isMobile ? 170 : 100,
-            minHeight: isMobile ? 4 : 3,
-            height: isMobile ? 4 : 3,
-            marginBottom: isMobile ? "60px" : "20px"
-          }}>
-          </div>
-          <p style={{width: isMobile ? "auto" : 470, fontSize: isMobile ? 34 : 20, lineHeight: isMobile ? "38px" : "33px", marginBottom: isMobile ? "35px" : ""}}
-          className="company-text fw-normal">
-          {t('home.main.intro')}
-          </p>
-          <p style={{width: isMobile ? "auto" : 670, fontSize: isMobile ? 28 : 15, lineHeight: isMobile ? "36px" : "31px", color: "#666666", marginBottom: isMobile ? "85px" : ""}}
-          className="mt-3">
-            {t('home.main.body')}
-          </p>
-          <div className="d-flex gap-4 mt-4 flex-wrap">
-            {services.map(service =>
-            <div style={{
-              width: isMobile ? "auto" : 300,
-              height: isMobile ? 230 : 210,
-              padding: isMobile ? "25px" : "12px",
-              marginBottom: isMobile ? "20px" : ""
-            }}
-            className="border border-theme border-2">
-                <div className="d-flex gap-3 align-items-center">
-                    <img src={service.iconImage} alt="image"
-                    style={{
-                      width: isMobile ? 100 : 45,
-                      height: isMobile ? 100 : 45,
-                    }} />
-                    <h5 style={{
-                      fontSize: isMobile ? 31 : ""
-                    }} 
-                    className="company-text fw-bold">
-                      {service.title}
-                    </h5>
+    <section className="section main-service" style={{ backgroundImage: "url('/mainServiceSection/background.jpg')" }}>
+      <div className="container">
+        <div className="row gx-4 gx-lg-5 gy-5 align-items-center">
+          <div className="col-12 col-lg-7">
+            <span className="section-eyebrow">{t('home.main.eyebrow')}</span>
+            <h2 className="section-title">
+              {t('home.main.title1')}<br />{t('home.main.title2')}
+            </h2>
+            <div className="title-bar ms-0" />
+            <p className="main-service__intro">{t('home.main.intro')}</p>
+            <p className="body-copy">{t('home.main.body')}</p>
+
+            <div className="row g-3 mt-2">
+              {services.map(service =>
+                <div className="col-12 col-sm-6" key={service.title}>
+                  <div className="mini-card">
+                    <div className="mini-card__head">
+                      <img src={service.iconImage} alt="" width={40} height={40} />
+                      <h3>{service.title}</h3>
+                    </div>
+                    <p>{service.content}</p>
+                  </div>
                 </div>
-                <p style={{fontSize: isMobile ? 31 : 15, lineHeight: isMobile ? "35px" : "31px", color: "#666666"}}
-                className="mt-3">
-                  {service.content}
-                </p>
+              )}
             </div>
-            )}
+
+            <div className="d-flex flex-wrap gap-3 mt-4">
+              <Link to="/services" className="btn-brand">{t('home.main.readMore')}</Link>
+              <Link to="/services" className="btn-brand btn-brand--dark">{t('home.main.getBrochure')}</Link>
+            </div>
           </div>
-          <div className={`d-flex gap-4 flex-wrap ${isMobile ? "justify-content-center pb-4 mt-5 mb-3" : "mt-5"}`}>
-              <button style={{height: 55, 
-                padding: isMobile ? "35px" : "",
-                marginBottom: isMobile ? "20px" : ""
-              }} onClick={() => {window.scrollTo(0,0);navigate("/services")}} 
-              className="btn-getQuote d-flex align-items-center">
-                  <span className='mx-3' style={{fontSize: isMobile ? 34 : 18}}>
-                    {t('home.main.readMore')}
-                  </span>
-              </button>
-              <button style={{height: 55, 
-                padding: isMobile ? "35px" : "",
-                marginBottom: isMobile ? "20px" : ""
-              }} onClick={() => {window.scrollTo(0,0);navigate("/services")}}
-              className="btn-getQuote d-flex align-items-center">
-                  <span className='mx-3' style={{fontSize: isMobile ? 34 : 18}}>
-                    {t('home.main.getBrochure')}
-                  </span>
-              </button>
+
+          <div className="col-12 col-lg-5 d-none d-md-flex justify-content-center">
+            <img className="main-service__img" src="/mainServiceSection/mainImage.png" alt="construction" loading="lazy" />
           </div>
         </div>
-        
-        <div className={`d-flex align-items-center ${isMobile ? "d-none" : ""}`}>
-          <img style={{
-            maxWidth: isMobile ? "100%" : 441,
-            maxHeight: isMobile ? "auto" : 524,
-            height: isMobile ? 420 : ""
-          }} 
-          src="/mainServiceSection/mainImage.png" alt="construction" />
-        </div>
-    </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,132 +1,108 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import MyContext from "../config/contextFile"
 
 import { TiSocialFacebook } from "react-icons/ti";
-import { FaInstagram,FaGoogle,FaLinkedin,FaPhone } from "react-icons/fa6";
+import { FaInstagram, FaGoogle, FaLinkedin, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 
 import getAllServices from '../pages/services/allServices';
 import { localizeDigits } from '../config/localization';
+import BrandLogo from './BrandLogo';
+import './Footer.css';
+
+const SOCIAL_URL = "https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/";
 
 const Footer = () => {
-  const navigate = useNavigate();
-  const {isMobile, locale, t} = useContext(MyContext)
+  const { locale, t } = useContext(MyContext)
   const allServices = getAllServices(locale)
   const year = new Intl.DateTimeFormat(locale === 'ar' ? 'ar-SA-u-nu-arab' : 'en-US', { year: 'numeric' }).format(new Date())
-  const primaryPhone = localizeDigits('+ 966 572744600', locale)
-  const secondaryPhone = localizeDigits('+ 966 580681213', locale)
+  const primaryPhone = localizeDigits('+966 572744600', locale)
+  const secondaryPhone = localizeDigits('+966 580681213', locale)
+
+  const socials = [
+    { Icon: FaLinkedin, label: 'LinkedIn' },
+    { Icon: FaGoogle, label: 'Google' },
+    { Icon: FaInstagram, label: 'Instagram' },
+    { Icon: TiSocialFacebook, label: 'Facebook' },
+  ];
+
   return (
-    <section style={{width:"100%"}}>
-      <div className={`px-4 ${isMobile ? "pt-5" :"py-4"} d-flex flex-wrap justify-content-around bg-theme text-white fw-bold`}>
-        <div className={`${isMobile ? "text-center" : ""}`}>
-          <h4 style={{
-            fontSize:isMobile?28:""
-          }} 
-          className="company-text text-center">
-          {t('footer.tagline')}
-          </h4>
-          <br />
-          <h3 style={{
-            fontSize:isMobile?42:31
-          }}>
-            {t('footer.cta')}
-          </h3>
-          {isMobile&&<br />}
-        </div>
-        <div className='d-flex align-items-center mt-2'>
-          <button style={{
-            fontSize:isMobile?30:""
-          }} onClick={() => {window.scrollTo(0,0);navigate("/contact-us")}}
-          className={`btn-footer-quote px-5 py-4 ${isMobile && "mb-5"} rounded-2 border-0 text-center fw-bold font-Raleway`}>
+    <footer className="site-footer">
+      {/* ---- call to action band ---- */}
+      <section className="footer-cta">
+        <div className="container footer-cta__inner">
+          <div>
+            <p className="footer-cta__tagline">{t('footer.tagline')}</p>
+            <h2 className="footer-cta__title">{t('footer.cta')}</h2>
+          </div>
+          <Link to="/contact-us" className="btn-brand btn-brand--dark footer-cta__btn">
             {t('header.quote')}
-          </button>
-        </div>
-      </div>
-    <footer 
-    // style={{width:"99.23645%"}} 
-    className="text-center overflow-hidden bg-dark text-light">
-      <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom container">
-        <div className="me-5 d-none d-lg-block">
-          <span>{t('pages.shared.socialLine')}</span>
-        </div>
-        <div>
-          <a target='_blank' 
-          href="https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/" className="me-4 text-reset">
-            <FaLinkedin size={isMobile?40:""} 
-            className='text-light text-hover-theme' />
-          </a>
-          <a target='_blank' 
-          href="https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/" className="me-4 text-reset">
-            <FaGoogle size={isMobile?40:""} 
-            className='text-light text-hover-theme' />
-          </a>
-          <a target='_blank' 
-          href="https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/" className="me-4 text-reset">
-            <FaInstagram size={isMobile?40:""} 
-            className='text-light text-hover-theme' />
-          </a>
-          <a target='_blank' 
-          href="https://www.linkedin.com/in/m-ayyub-sayeed-32a1067b/" className="me-4 text-reset">
-            <TiSocialFacebook size={isMobile?50:22} 
-            className='text-light text-hover-theme' />
-          </a>
+          </Link>
         </div>
       </section>
 
-      <section>
-        <div className="text-center text-md-start mt-5">
-          <div className={`mt-3 ${isMobile?"column":"row"}`}>
-            <div className="col-md-8 col-lg-4 col-xl-3 mx-auto mb-4">
-              <h6 style={{fontSize:isMobile?45:25}} 
-              className="text-uppercase fw-bold mb-4 mt-5">
-                <span className="company-name-text">{t('brand.short')}</span>
-              </h6>
-              <p style={{fontSize:isMobile?30:""}}>
-                {t('footer.intro')}
-              </p>
+      {/* ---- main footer ---- */}
+      <div className="footer-main">
+        <div className="container">
+          <div className="row gx-4 gx-lg-5 gy-5">
+            <div className="col-12 col-lg-4">
+              <Link to="/" aria-label={t('brand.full')} className="d-inline-flex">
+                <BrandLogo variant="light" />
+              </Link>
+              <p className="footer-main__intro">{t('footer.intro')}</p>
+              <p className="footer-main__social-label">{t('pages.shared.socialLine')}</p>
+              <div className="footer-social">
+                {socials.map(({ Icon, label }) => (
+                  <a key={label} href={SOCIAL_URL} target="_blank" rel="noreferrer" aria-label={label}>
+                    <Icon size={18} />
+                  </a>
+                ))}
+              </div>
             </div>
-            <div className="col-md-8 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 style={{
-                fontSize:isMobile?34:""
-              }}
-              className="text-uppercase fw-bold mb-4 mt-5">{t('footer.quickLinks')}</h6>
-              <p style={{fontSize:isMobile?25:""}}><a href="#/" className="text-light text-hover-theme text-decoration-none">{t('header.nav.home')}</a></p>
-              <p style={{fontSize:isMobile?25:""}}><a href="#/about-us" className="text-light text-hover-theme text-decoration-none">{t('header.nav.about')}</a></p>
-              <p style={{fontSize:isMobile?25:""}}><a href="#/services" className="text-light text-hover-theme text-decoration-none">{t('header.nav.services')}</a></p>
-              <p style={{fontSize:isMobile?25:""}}><a href="#/site-works" className="text-light text-hover-theme text-decoration-none">{t('header.nav.siteWorks')}</a></p>
-              <p style={{fontSize:isMobile?25:""}}><a href="#/contact-us" className="text-light text-hover-theme text-decoration-none">{t('header.nav.contact')}</a></p>
+
+            <div className="col-6 col-md-4 col-lg-2">
+              <h3 className="footer-heading">{t('footer.quickLinks')}</h3>
+              <ul className="footer-links">
+                <li><Link to="/">{t('header.nav.home')}</Link></li>
+                <li><Link to="/about-us">{t('header.nav.about')}</Link></li>
+                <li><Link to="/services">{t('header.nav.services')}</Link></li>
+                <li><Link to="/site-works">{t('header.nav.siteWorks')}</Link></li>
+                <li><Link to="/contact-us">{t('header.nav.contact')}</Link></li>
+              </ul>
             </div>
-            <div className="col-md-8 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 style={{
-                fontSize:isMobile?34:""
-              }}
-              className="text-uppercase fw-bold mb-4 mt-5">{t('footer.services')}</h6>
-              {allServices.map(service=>
-                <p style={{fontSize:isMobile?25:""}}><a href={`#/services#${service.id}`} className="text-light text-hover-theme text-decoration-none">{service.title}</a></p>
-              )}
+
+            <div className="col-6 col-md-4 col-lg-3">
+              <h3 className="footer-heading">{t('footer.services')}</h3>
+              <ul className="footer-links">
+                {allServices.map(service =>
+                  <li key={service.id}><HashLink smooth to={`/services#${service.id}`}>{service.title}</HashLink></li>
+                )}
+              </ul>
             </div>
-            <div className="col-md-8 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 style={{
-                fontSize:isMobile?34:""
-              }}
-              className="text-uppercase fw-bold mb-4 mt-5">{t('footer.contact')}</h6>
-              <p style={{fontSize:isMobile?25:""}}><IoLocationSharp className='me-3 text-theme' /> {t('pages.shared.officeAddress')}</p>
-              <p style={{fontSize:isMobile?25:""}}><MdEmail className='me-3 text-theme'/>ayyubsayeed@protech-saudi.com</p>
-              <p style={{fontSize:isMobile?25:""}}><MdEmail className='me-3 text-theme'/>info@protech-saudi.com</p>
-              <p style={{fontSize:isMobile?25:""}}><FaPhone className='me-3 text-theme'/> {t('pages.shared.phoneLabel')} {primaryPhone}</p>
-              <p style={{fontSize:isMobile?25:""}}><FaPhone className='me-3 text-theme'/> {t('pages.shared.mobileLabel')} {secondaryPhone}</p>
+
+            <div className="col-12 col-md-4 col-lg-3">
+              <h3 className="footer-heading">{t('footer.contact')}</h3>
+              <ul className="footer-contact">
+                <li><IoLocationSharp aria-hidden="true" /><span>{t('pages.shared.officeAddress')}</span></li>
+                <li><MdEmail aria-hidden="true" /><a href="mailto:ayyubsayeed@protech-saudi.com">ayyubsayeed@protech-saudi.com</a></li>
+                <li><MdEmail aria-hidden="true" /><a href="mailto:info@protech-saudi.com">info@protech-saudi.com</a></li>
+                <li><FaPhone aria-hidden="true" /><span>{t('pages.shared.phoneLabel')} <a href="tel:+966572744600" dir="ltr">{primaryPhone}</a></span></li>
+                <li><FaPhone aria-hidden="true" /><span>{t('pages.shared.mobileLabel')} <a href="tel:+966580681213" dir="ltr">{secondaryPhone}</a></span></li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <div className="text-center p-5" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)", fontSize: isMobile ? 25 : ""}}>
-        © {year} {t('footer.copyright')}: <a className="text-reset fw-bold" href="https://www.protech-saudi.com/">protech-saudi</a>
+      <div className="footer-bottom">
+        <div className="container">
+          © {year} {t('footer.copyright')}: <a href="https://www.pertech.com.sa/">{t('brand.full')}</a>
+        </div>
       </div>
     </footer>
-    </section>
   );
 };
 

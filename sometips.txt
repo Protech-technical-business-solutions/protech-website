@@ -6,4 +6,13 @@ git commit -m "message"
 git push
 npm run deploy
 
-and then goto github pages settings and your custom domain again for some reason :)
+and then goto github pages settings and add your custom domain again for some reason :)
+
+--- domain notes (Pertech rebrand) ---
+- CNAME is now www.pertech.com.sa and is also in public/CNAME, so `npm run deploy`
+  keeps the custom domain (no need to re-add it in GitHub Pages settings every time).
+- DNS for pertech.com.sa: CNAME  www -> <github-user-or-org>.github.io
+  and apex A records -> 185.199.108.153 / .109.153 / .110.153 / .111.153
+- protech-saudi.com: GitHub Pages serves only ONE custom domain, so set up
+  URL forwarding (301) at the protech-saudi.com registrar -> https://www.pertech.com.sa
+- After the first deploy, tick "Enforce HTTPS" in the repo's Pages settings.

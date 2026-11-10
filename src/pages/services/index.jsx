@@ -6,113 +6,53 @@ import PageBanner from "../../components/PageBanner";
 import getAllServices from "./allServices";
 
 
+function ServiceBlock({ id, title, image, alt, children }) {
+    return (
+        <section id={id} className="service-block">
+            <div className="container">
+                <div className="row gx-4 gx-lg-5 gy-4 align-items-center">
+                    <div className="col-12 col-md-5">
+                        <img className="service-block__img" src={image} alt={alt} loading="lazy" />
+                    </div>
+                    <div className="col-12 col-md-7">
+                        <h2 className="service-block__title">{title}</h2>
+                        {children}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
 export default function ServicesPage(){
-    const { isMobile, locale, t } = useContext(MyContext)
+    const { locale, t } = useContext(MyContext)
     const allServices = getAllServices(locale)
     return(
         <div>
             <PageBanner bannerTitle={t('pages.services.banner')}
             bannerImageURL="/banners/servicePageBanner.webp" />
-            {isMobile?<><br /><br /></> : <><br /><br /><br /><br /><br /></>}
-            <h5 style={{
-                fontSize:isMobile?57:37
-            }} 
-            className="company-text text-center fw-bold mb-4">
-                {t('pages.services.title')}
-            </h5>
-            <p style={{
-                fontSize:isMobile?30:22
-            }} className="company-text text-center text-theme">
-                {t('pages.services.subtitle')}
-            </p>
-            {isMobile?<br /> : <><br /><br /><br /><br /><br /></>}
-            <div className="mb-5">
-                {allServices.map((service,idx,_)=>
-                    <div className="py-5"
-                    style={{
-                        backgroundColor: idx%2==0? "white" : "#f1f1f1"
-                    }}>
-                        <div key={service.id} id={service.id} 
-                        className={isMobile?"":"container"}>
-                            <br />
-                            <h1 style={{
-                                fontSize:isMobile?40:31, fontWeight:"bold"
-                            }} className={`${isMobile?"text-center":""}`}>
-                                {service.title}
-                            </h1>
-                            <br />
-                            <div className={`d-flex flex-wrap justify-content-around ${isMobile&&"flex-column"}`}>
-                                {isMobile? 
-                                <img style={{
-                                    width:"70%"
-                                }}
-                                src={service.image} alt="Service Image" className="mx-auto mb-5" />
-                                :
-                                <div>
-                                    <img style={{
-                                        width:380
-                                    }}
-                                    src={service.image} alt="Service Image" />
-                                </div>
-                                }
-                                <div style={{
-                                    minHeight:234,
-                                }}
-                                className="flex-grow-1 d-flex justify-content-center">
-                                    <ul style={{
-                                        maxWidth:500
-                                    }}>
-                                        {service.items.map(servicee=>
-                                            <li style={{fontSize:isMobile?25:15, lineHeight:"33px", color:"#666666"}}
-                                            className="mt-4">{servicee}</li>
-                                        )}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-                <div id="Electrical Services" 
-                className="py-5"
-                style={{
-                    backgroundColor:"#f1f1f1"
-                }}>
-                    <div className={isMobile?"":"container"}>
-                        <br />
-                        <h1 style={{
-                            fontSize:isMobile?40:31, fontWeight:"bold"
-                        }} className={`${isMobile?"text-center":""}`}>
-                            {t('pages.services.electricalTitle')}
-                        </h1>
-                        <br />
-                        <div className={`d-flex flex-wrap justify-content-around ${isMobile&&"flex-column"}`}>
-                            {isMobile? 
-                            <img style={{
-                                width:"70%"
-                            }}
-                            src="/servicesPage/electrical.jpg" alt="Service Image" className="mx-auto mb-5" />
-                            :
-                            <div>
-                                <img style={{
-                                    width:380
-                                }}
-                                src="/servicesPage/electrical.jpg" alt="Service Image" />
-                            </div>
-                            }
-                            <div style={{
-                                minHeight:234,
-                            }}
-                            className="flex-grow-1 d-flex justify-content-center">
-                                <p style={{fontSize:isMobile?25:15, lineHeight:"33px", color:"#666666", maxWidth:500}}
-                                className="mt-4 mx-">
-                                    {t('pages.services.electricalBody')}
-                                </p>
-                            </div>
-                        </div>
+            <div className="section pb-0">
+                <div className="container">
+                    <div className="section-head">
+                        <h2 className="section-title">{t('pages.services.title')}</h2>
+                        <p className="section-sub">{t('pages.services.subtitle')}</p>
+                        <div className="title-bar" />
                     </div>
                 </div>
             </div>
-            <br />
+            <div className="services-list">
+                {allServices.map(service =>
+                    <ServiceBlock key={service.id} id={service.id} title={service.title} image={service.image} alt={service.title}>
+                        <ul className="service-list">
+                            {service.items.map(item => <li key={item}>{item}</li>)}
+                        </ul>
+                    </ServiceBlock>
+                )}
+                <ServiceBlock id="Electrical Services" title={t('pages.services.electricalTitle')}
+                    image="/servicesPage/electrical.jpg" alt={t('pages.services.electricalTitle')}>
+                    <p className="body-copy mb-0">{t('pages.services.electricalBody')}</p>
+                </ServiceBlock>
+            </div>
         </div>
     );
 }

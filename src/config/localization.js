@@ -1,7 +1,7 @@
 const translations = {
   en: {
     header: {
-      welcome: 'Welcome to Protech Technical Solutions & Business Services',
+      welcome: 'Welcome to Pertech Technical Solutions & Business Services',
       callUs: 'Call us:',
       findUs: 'Find us:',
       address: 'Office 08, 1st Floor, Bldg 7021, Abdullah Al-Hamadhani St, Al Malaz, Riyadh 12836',
@@ -16,14 +16,16 @@ const translations = {
       language: 'AR'
     },
     brand: {
-      short: 'PROTECH',
-      full: 'Protech Technical Solutions & Business Services'
+      short: 'PERTECH',
+      full: 'Pertech Technical Solutions & Business Services',
+      tagline: 'Technical Solutions & Business Services',
+      menu: 'Menu'
     },
     footer: {
       tagline: 'We create with the heart & build with the mind',
       cta: 'Looking for a quality construction company?',
       social: 'Connect with us on social networks:',
-      intro: 'Protech was formed with one visionary mind set to allow property owners, developers, architects and general contractors to deliver a competitive edge for their projects.',
+      intro: 'Pertech was formed with one visionary mind set to allow property owners, developers, architects and general contractors to deliver a competitive edge for their projects.',
       quickLinks: 'Quick Links',
       services: 'Services',
       contact: 'Contact',
@@ -33,7 +35,7 @@ const translations = {
     home: {
       hero: {
         welcome: 'Welcome to',
-        brandPro: 'PRO',
+        brandPro: 'PER',
         brandTech: 'TECH',
         subtitle: 'Design, Build, Install & Maintain',
         about: 'ABOUT US',
@@ -52,8 +54,8 @@ const translations = {
         eyebrow: 'We offer the best services',
         title1: 'We offer the best services',
         title2: 'for our clients',
-        intro: 'Protech Group provides a complete range of Interior Design, and Electro Mechanical Services.',
-        body: 'Protech Group was formed with one visionary mind set to allow property owners, developers, architects and general contractors to deliver a competitive edge for their projects. Capital Dynamics provides a complete range of Interior Design, Fitout Works and Electro Mechanical services though highly experienced Engineering & Project Management team fully complying to time, cost and quality requirements of projects.',
+        intro: 'Pertech provides a complete range of Interior Design, and Electro Mechanical Services.',
+        body: 'Pertech was formed with one visionary mind set to allow property owners, developers, architects and general contractors to deliver a competitive edge for their projects. Pertech provides a complete range of Interior Design, Fitout Works and Electro Mechanical services though highly experienced Engineering & Project Management team fully complying to time, cost and quality requirements of projects.',
         architecture: {
           title: 'Architecture',
           content: 'We Provide Interior Architecture Services to our valuable clients across Saudi Arabia'
@@ -85,10 +87,10 @@ const translations = {
     pages: {
       about: {
         banner: 'About Us',
-        title: 'About Protech Group',
+        title: 'About Pertech',
         subtitle: 'know more about us',
-        body1: 'Protech is empowered with the finest fleet of Architects, Civil, Structural, Mechanical & Electrical Engineers as the stamp of distinctive genius for clarity and precision in the projects we execute. The combination of the wide range of knowledge and experience in this field allows us for creative and practical engineering solutions and implementations. We have grown exponentially and have always maintained commitment to provide the best craftsmanship and level of expertise to meet our client\'s requirements. All disciplines are housed and managed within a single company in order to maximize coordination, communication and efficiency. This all creates a truly legitimate MEP construction and service company.',
-        body2: 'Protech was formed with one visionary mind set to allow property owners, developers, architects and general contractors to deliver a competitive edge for their projects. Capital Dynamics provides a complete range of Interior Design, Fitout Works and Electro Mechanical services though highly experienced Engineering & Project Management team fully complying to time, cost and quality requirements of projects.'
+        body1: 'Pertech is empowered with the finest fleet of Architects, Civil, Structural, Mechanical & Electrical Engineers as the stamp of distinctive genius for clarity and precision in the projects we execute. The combination of the wide range of knowledge and experience in this field allows us for creative and practical engineering solutions and implementations. We have grown exponentially and have always maintained commitment to provide the best craftsmanship and level of expertise to meet our client\'s requirements. All disciplines are housed and managed within a single company in order to maximize coordination, communication and efficiency. This all creates a truly legitimate MEP construction and service company.',
+        body2: 'Pertech was formed with one visionary mind set to allow property owners, developers, architects and general contractors to deliver a competitive edge for their projects. Pertech provides a complete range of Interior Design, Fitout Works and Electro Mechanical services though highly experienced Engineering & Project Management team fully complying to time, cost and quality requirements of projects.'
       },
       contact: {
         banner: 'Contact Us',
@@ -107,7 +109,7 @@ const translations = {
         submit: 'Submit'
       },
       shared: {
-        companyName: 'Protech Technical Solutions & Business Services',
+        companyName: 'Pertech Technical Solutions & Business Services',
         officeAddress: 'Office No. 08, Floor No. 01, Building 7021, Abdullah Al-Hamadhani St, Al Malaz District, Riyadh 12836, Saudi Arabia',
         officeAddressLines: [
           'Office No. 08, Floor No. 01, Building 7021',
@@ -290,7 +292,7 @@ const translations = {
   },
   ar: {
     header: {
-      welcome: 'أهلاً بكم في بروتك للحلول التقنية والخدمات التجارية',
+      welcome: 'أهلاً بكم في بيرتيك للحلول التقنية وخدمات الأعمال',
       callUs: 'اتصل بنا:',
       findUs: 'تجدنا:',
       address: 'مكتب ٠٨، الطابق الأول، مبنى ٧٠٢١، شارع عبدالله الحماداني، حي الملز، الرياض ١٢٨٣٦',
@@ -305,14 +307,16 @@ const translations = {
       language: 'EN'
     },
     brand: {
-      short: 'بروتك',
-      full: 'بروتك للحلول التقنية والخدمات التجارية'
+      short: 'بيرتيك',
+      full: 'بيرتيك للحلول التقنية وخدمات الأعمال',
+      tagline: 'للحلول التقنية وخدمات الأعمال',
+      menu: 'القائمة'
     },
     footer: {
       tagline: 'نبدع بالقلب ونبني بالعقل',
       cta: 'هل تبحث عن مقاول موثوق؟',
       social: 'تابعنا على وسائل التواصل الاجتماعي:',
-      intro: 'تأسست بروتك برؤية واحدة تمكّن مالكي العقارات والمطورين والمهندسين والمقاولين من تقديم ميزة تنافسية لمشاريعهم.',
+      intro: 'تأسست بيرتيك برؤية واحدة تمكّن مالكي العقارات والمطورين والمهندسين والمقاولين من تقديم ميزة تنافسية لمشاريعهم.',
       quickLinks: 'روابط سريعة',
       services: 'الخدمات',
       contact: 'تواصل',
@@ -322,8 +326,8 @@ const translations = {
     home: {
       hero: {
         welcome: 'مرحبًا بكم في',
-        brandPro: 'برو',
-        brandTech: 'تك',
+        brandPro: 'بير',
+        brandTech: 'تيك',
         subtitle: 'تصميم، تنفيذ، تركيب وصيانة',
         about: 'من نحن',
         services: 'الخدمات'
@@ -341,8 +345,8 @@ const translations = {
         eyebrow: 'نقدم أفضل الخدمات',
         title1: 'نقدم أفضل الخدمات',
         title2: 'لعملائنا',
-        intro: 'توفر مجموعة بروتك نطاقًا متكاملًا من خدمات التصميم الداخلي والأعمال الكهروميكانيكية.',
-        body: 'تأسست مجموعة بروتك برؤية واحدة تمكّن مالكي العقارات والمطورين والمهندسين والمقاولين من تقديم ميزة تنافسية لمشاريعهم. تقدم المجموعة نطاقًا متكاملاً من خدمات التصميم الداخلي وأعمال التشطيب والأعمال الكهروميكانيكية عبر فريق هندسي وإداري متمرس، مع الالتزام بمواعيد التسليم والتكلفة ومعايير الجودة.',
+        intro: 'توفر بيرتيك نطاقًا متكاملًا من خدمات التصميم الداخلي والأعمال الكهروميكانيكية.',
+        body: 'تأسست بيرتيك برؤية واحدة تمكّن مالكي العقارات والمطورين والمهندسين والمقاولين من تقديم ميزة تنافسية لمشاريعهم. تقدم بيرتيك نطاقًا متكاملاً من خدمات التصميم الداخلي وأعمال التشطيب والأعمال الكهروميكانيكية عبر فريق هندسي وإداري متمرس، مع الالتزام بمواعيد التسليم والتكلفة ومعايير الجودة.',
         architecture: {
           title: 'العمارة',
           content: 'نقدم خدمات العمارة الداخلية لعملائنا الكرام في مختلف أنحاء المملكة العربية السعودية'
@@ -374,10 +378,10 @@ const translations = {
     pages: {
       about: {
         banner: 'من نحن',
-        title: 'نبذة عن مجموعة بروتك',
+        title: 'نبذة عن بيرتيك',
         subtitle: 'تعرف علينا أكثر',
-        body1: 'تضم بروتك فريقًا متميزًا من المهندسين المعماريين والمدنيين والإنشائيين والميكانيكيين والكهربائيين، مما يتيح لنا تقديم حلول هندسية عملية ومبتكرة تتوافق مع متطلبات السوق السعودي. تُدار جميع التخصصات داخليًا لزيادة التنسيق والكفاءة في التنفيذ.',
-        body2: 'تأسست بروتك برؤية واحدة لتمكين أصحاب المشاريع من تحقيق جودة تنفيذ وفعالية في التكلفة. نقدم خدمات التصميم الداخلي، التشطيبات، والأعمال الميكانيكية والكهربائية عبر فريق ذو خبرة، مع الالتزام بالمواعيد ومعايير الجودة.'
+        body1: 'تضم بيرتيك فريقًا متميزًا من المهندسين المعماريين والمدنيين والإنشائيين والميكانيكيين والكهربائيين، مما يتيح لنا تقديم حلول هندسية عملية ومبتكرة تتوافق مع متطلبات السوق السعودي. تُدار جميع التخصصات داخليًا لزيادة التنسيق والكفاءة في التنفيذ.',
+        body2: 'تأسست بيرتيك برؤية واحدة لتمكين أصحاب المشاريع من تحقيق جودة تنفيذ وفعالية في التكلفة. نقدم خدمات التصميم الداخلي، التشطيبات، والأعمال الميكانيكية والكهربائية عبر فريق ذو خبرة، مع الالتزام بالمواعيد ومعايير الجودة.'
       },
       contact: {
         banner: 'تواصل معنا',
@@ -396,7 +400,7 @@ const translations = {
         submit: 'إرسال'
       },
       shared: {
-        companyName: 'بروتك للحلول التقنية والخدمات التجارية',
+        companyName: 'بيرتيك للحلول التقنية وخدمات الأعمال',
         officeAddress: 'المكتب 08، الطابق 01، المبنى 7021، شارع عبدالله الحماداني، الملز، الرياض 12836، المملكة العربية السعودية',
         officeAddressLines: [
           'المكتب 08، الطابق 01، المبنى 7021',

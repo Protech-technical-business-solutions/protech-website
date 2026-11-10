@@ -1,9 +1,9 @@
 {
-  "name": "protechfrontend",
+  "name": "pertechfrontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://www.protech-saudi.com",
+  "homepage": "https://www.pertech.com.sa",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
